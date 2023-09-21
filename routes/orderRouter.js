@@ -4,20 +4,24 @@ import {
   sellerGetHistory,
   sellerGetSingleOrderItems,
   sellerPatchToDelivered,
+  sellerPatchToReturned,
   sellerPatchToShipping,
   userCreateOrder,
-  userDeleteOrderCompletely,
   userGetAllOrderItem,
   userGetHistory,
   userGetOrder,
+  userGetOrders,
   userGetSingleOrderItem,
   userPatchToApproved,
-  userPushOrderItemToEachHistory,
+  userPatchToNotApproved,
 } from '../controllers/orderController.js';
 import { authorizePermissions } from '../middlewares/authMiddleware.js';
 import {
   validateCreateOrderInput,
+  validateUpdateToApprovedOrderItemInput,
   validateUpdateToDeliveredInput,
+  validateUpdateToNotApprovedOrderItemInput,
+  validateUpdateToReturnedOrderItemInput,
   validateUpdateToShippingInput,
 } from '../middlewares/validationMiddleware.js';
 const router = Router();
@@ -27,7 +31,11 @@ router.post('/user/create-order', [
   validateCreateOrderInput,
   userCreateOrder,
 ]);
-router.get('/user/get-order', [authorizePermissions('user'), userGetOrder]);
+router.get('/user/get-order', [authorizePermissions('user'), userGetOrders]);
+router.get('/user/get-order/:orderId', [
+  authorizePermissions('user'),
+  userGetOrder,
+]);
 router.get('/user/get-all-order-item', [
   authorizePermissions('user'),
   userGetAllOrderItem,
@@ -54,10 +62,25 @@ router.patch('/seller/to-delivered/:orderItemId', [
   validateUpdateToDeliveredInput,
   sellerPatchToDelivered,
 ]);
-router.patch('/user/to-approved', userPatchToApproved);
-router.post('/user/push-history', userPushOrderItemToEachHistory);
-router.delete('/user/delete-order', userDeleteOrderCompletely);
-router.get('/user/get-history', userGetHistory);
-router.get('/seller/get-history', sellerGetHistory);
+router.patch('/user/to-approved/:orderItemId', [
+  authorizePermissions('user'),
+  validateUpdateToApprovedOrderItemInput,
+  userPatchToApproved,
+]);
+router.patch('/user/to-not-approved/:orderItemId', [
+  authorizePermissions('user'),
+  validateUpdateToNotApprovedOrderItemInput,
+  userPatchToNotApproved,
+]);
+router.patch('/seller/to-returned/:orderItemId', [
+  authorizePermissions('seller'),
+  validateUpdateToReturnedOrderItemInput,
+  sellerPatchToReturned,
+]);
+router.get('/user/get-history', [authorizePermissions('user'), userGetHistory]);
+router.get('/seller/get-history', [
+  authorizePermissions('seller'),
+  sellerGetHistory,
+]);
 
 export default router;

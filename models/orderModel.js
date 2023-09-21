@@ -8,13 +8,9 @@ const OrderSchema = new mongoose.Schema({
       required: true,
     },
   ],
-  status: {
-    type: String,
-    enum: ['processing', 'approved'],
-    default: 'processing',
-  },
-  allTotalPrice: {
+  wholeTotalPrice: {
     type: Number,
+    required: true,
   },
   user: {
     type: mongoose.Types.ObjectId,

@@ -1,41 +1,34 @@
 import mongoose from 'mongoose';
 
-const OrderItemSchema = new mongoose.Schema({
+const UserHistorySchema = new mongoose.Schema({
   orderedProducts: [
     {
       type: mongoose.Types.ObjectId,
-      ref: 'OrderedProduct',
+      ref: 'UserHistoryItem',
       required: true,
     },
   ],
   shippingAdress1: {
     type: String,
-    required: true,
   },
   shippingAdress2: {
     type: String,
-    required: true,
   },
   city: {
     type: String,
-    required: true,
   },
   zipCode: {
     type: String,
-    required: true,
   },
   country: {
     type: String,
-    required: true,
   },
   phoneNumber: {
     type: String,
-    required: true,
   },
   seller: {
     type: mongoose.Types.ObjectId,
     ref: 'User',
-    required: true,
   },
   user: {
     type: mongoose.Types.ObjectId,
@@ -43,22 +36,22 @@ const OrderItemSchema = new mongoose.Schema({
   },
   dateOrdered: {
     type: Date,
+  },
+  approvalDate: {
+    type: Date,
     default: Date.now,
   },
   totalPrice: {
     type: Number,
-    required: true,
   },
   deliveryStatus: {
     type: String,
-    enum: ['pending', 'shipping', 'delivered', 'returning', 'returned'],
-    default: 'pending',
+    enum: ['delivered', 'canceled'],
   },
   orderStatus: {
     type: String,
-    enum: ['processing', 'readyToApprove', 'approved', 'notApproved'],
-    default: 'processing',
+    enum: ['approved', 'return'],
   },
 });
 
-export default mongoose.model('OrderItem', OrderItemSchema);
+export default mongoose.model('UserHistory', UserHistorySchema);
