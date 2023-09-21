@@ -1,0 +1,64 @@
+{
+  "orderItems": [
+    {
+      "orderedProducts": [
+        {
+          "product": "6509c398721ed31bd8d69d5d",
+          "quantity": "2"
+        },
+        {
+          "product": "6509c3f0721ed31bd8d69d63",
+          "quantity": "5"
+        },
+        {
+          "product": "6509c454721ed31bd8d69d69",
+          "quantity": "1"
+        }
+      ],
+      "shippingAdress1": "san francisco",
+      "shippingAdress2": "san francisco",
+      "city": "new york",
+      "zipCode": "21476",
+      "country": "Brazil",
+      "phoneNumber": "8249820983487",
+      "seller": "6509a9a4e0d310e10c525e50",
+      "user": "6509a930e0d310e10c525e43"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": "650a863be99d431be116ddee",
+          "quantity": "3"
+        },
+        {
+          "product": "650a85dfe99d431be116ddeb",
+          "quantity": "20"
+        }
+      ],
+      "shippingAdress1": "san francisco",
+      "shippingAdress2": "san francisco",
+      "city": "new york",
+      "zipCode": "21476",
+      "country": "Brazil",
+      "phoneNumber": "8249820983487",
+      "seller": "6509a9d2e0d310e10c525e58",
+      "user": "6509a930e0d310e10c525e43"
+    },
+    {
+      "orderedProducts": [
+        {
+          "product": "650a870de99d431be116ddfe",
+          "quantity": "2"
+        }
+      ],
+      "shippingAdress1": "san francisco",
+      "shippingAdress2": "san francisco",
+      "city": "new york",
+      "zipCode": "21476",
+      "country": "Brazil",
+      "phoneNumber": "8249820983487",
+      "seller": "6509a9bde0d310e10c525e54",
+      "user": "6509a930e0d310e10c525e43"
+    }
+  ]
+}
