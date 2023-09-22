@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import * as dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
@@ -21,8 +22,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(morgan('dev'));
-
 app.use(cookieParser());
 app.use(express.json());
 
@@ -32,16 +31,19 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   res.json({ message: 'Data received', data: req.body });
 });
+app.get('/api/v1/test', (req, res) => {
+  res.json({ message: 'test route (second attemp)' });
+});
 
 // ROUTER
 app.use('/api/v1/products', authenticateUser, productRouter);
 app.use('/api/v1/orders', authenticateUser, orderRouter);
-app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/categories', authenticateUser, categoryRouter);
 app.use('/api/v1/users', authenticateUser, userRouter);
 app.use('/api/v1/authentications', authRouter);
 
 app.use('*', (req, res) => {
-  res.status(404).json({ msg: 'not found' });
+  res.status(404).json({ message: 'not found' });
 });
 
 app.use(errorHandlerMiddleware);
