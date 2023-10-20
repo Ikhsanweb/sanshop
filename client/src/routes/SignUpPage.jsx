@@ -33,7 +33,7 @@ const SignUpPage = () => {
           </div>
           <FormRow type="text" name="fullName" labelText="full name" />
           <FormRow type="email" name="email" />
-          <FormRow type="password" name="password" defaultValue="secret123" />
+          <FormRow type="password" name="password" defaultValue="" />
           <FormRow type="text" name="phoneNumber" labelText="phone number" />
           <FormRowSelect
             name="role"

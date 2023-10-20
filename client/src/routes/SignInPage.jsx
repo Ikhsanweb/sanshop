@@ -36,8 +36,8 @@ const SignInPage = () => {
               <Link to="/sign-up">Sign up</Link> with your email and password
             </span>
           </div>
-          <FormRow type="email" name="email" defaultValue="@bankrupt.com" />
-          <FormRow type="password" name="password" defaultValue="secret123" />
+          <FormRow type="email" name="email" defaultValue="" />
+          <FormRow type="password" name="password" defaultValue="" />
           <SubmitBtn />
         </Form>
       </div>
