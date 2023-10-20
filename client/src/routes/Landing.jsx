@@ -1,7 +1,9 @@
-import { redirect } from 'react-router-dom';
-import Wrapper from '../assets/wrappers/Temp';
+import { Link, redirect } from 'react-router-dom';
+import Wrapper from '../assets/wrappers/Landing';
 import TempButton from '../component/TempButton';
 import customFetch from '../utils/customFetch';
+import Button, { BUTTON_TYPE_CLASSES } from '../component/Button';
+import { Logo } from '../component';
 
 export const loader = async () => {
   try {
@@ -18,10 +20,17 @@ export const loader = async () => {
 const Landing = () => {
   return (
     <Wrapper>
-      <h1 className="temp-text">Landing Page</h1>
-      <div>
-        <TempButton text="Sign Up" path="sign-up" />
-        <TempButton text="Sign In" path="sign-in" />
+      <div className="top-container">
+        <Logo />
+        <h1 className="title">Explore your bags</h1>
+      </div>
+      <div className="bottom-container">
+        <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>
+          <Link to="sign-up">Sign Up</Link>
+        </Button>
+        <Button>
+          <Link to="sign-in">Sign In</Link>
+        </Button>
       </div>
     </Wrapper>
   );

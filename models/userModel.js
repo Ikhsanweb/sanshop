@@ -38,6 +38,12 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'admin', 'seller'],
     default: 'user',
   },
+  avatar: {
+    type: String,
+  },
+  avatarPublicId: {
+    type: String,
+  },
 });
 
 export default mongoose.model('User', UserSchema);

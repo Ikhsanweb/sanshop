@@ -3,6 +3,7 @@ import Wrapper from '../assets/wrappers/BottomNavbar';
 import { MdAccountCircle } from 'react-icons/md';
 import { FaList } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import NavLinks from './NavLinks';
 
 const bottomLinks = [
   {
@@ -31,7 +32,7 @@ const BottomNavbar = () => {
   return (
     <Wrapper>
       <div className="nav-links">
-        {bottomLinks.map((link) => {
+        {/* {bottomLinks.map((link) => {
           const { text, path, icon } = link;
           return (
             <NavLink to={path} key={text} className="nav-link">
@@ -39,7 +40,8 @@ const BottomNavbar = () => {
               <p className="text-icon">{text}</p>
             </NavLink>
           );
-        })}
+        })} */}
+        <NavLinks />
       </div>
     </Wrapper>
   );

@@ -1,3 +1,6 @@
+import stripe from 'stripe';
+import dotenv from 'dotenv';
+dotenv.config();
 import OrderedProduct from '../models/orderedProductModel.js';
 import OrderItem from '../models/orderItemModel.js';
 import Order from '../models/orderModel.js';
@@ -6,6 +9,8 @@ import UserHistory from '../models/userHistoryModel.js';
 import SellerHistoryItem from '../models/sellerHistoryItemModel.js';
 import SellerHistory from '../models/sellerHistoryModel.js';
 import { StatusCodes } from 'http-status-codes';
+
+const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
 export const userCreateOrder = async (req, res) => {
   const { orderItems } = req.body;
@@ -33,14 +38,6 @@ export const userCreateOrder = async (req, res) => {
           return receeivedTotalPrice;
         })
       );
-
-      // const calculatedTotalPrice = await Promise.all(
-      //   totalPrice.map((item) =>
-      //     item.reduce((a, b) => {
-      //       a + b, 0;
-      //     })
-      //   )
-      // );
 
       const calculatedTotalPrice = totalPrice.reduce((a, b) => a + b, 0);
 
@@ -72,9 +69,20 @@ export const userCreateOrder = async (req, res) => {
 
   const calculatedTotalPrice = totalPrice.reduce((a, b) => a + b, 0);
 
+  const paymentIntent = await stripeInstance.paymentIntents.create({
+    amount: calculatedTotalPrice * 100,
+    currency: 'usd',
+    payment_method_types: ['card'],
+  });
+
+  const receivedPaymentIntent = await paymentIntent;
+
+  console.log(receivedPaymentIntent);
+
   const order = Order.create({
     orderItems: receivedOrderItemIds,
     wholeTotalPrice: calculatedTotalPrice,
+    stripePaymentIntentId: receivedPaymentIntent.client_secret,
     user: req.user.userId,
   });
   const createOrder = Promise.resolve(order);
@@ -84,34 +92,106 @@ export const userCreateOrder = async (req, res) => {
 };
 
 export const userGetOrders = async (req, res) => {
-  const userOrders = await Order.find({ user: req.user.userId });
+  const userOrders = await Order.find({ user: req.user.userId })
+    .populate({
+      path: 'orderItems',
+      populate: {
+        path: 'orderedProducts',
+        populate: {
+          path: 'product',
+        },
+      },
+    })
+    .populate({
+      path: 'orderItems',
+      populate: { path: 'seller', select: 'fullName _id' },
+    });
   res.status(StatusCodes.OK).json({ userOrders });
 };
 
 export const userGetOrder = async (req, res) => {
-  const userOrder = await Order.findById(req.params.orderId).populate(
-    'orderItems'
-  );
+  const userOrder = await Order.findById(req.params.orderId)
+    .populate({
+      path: 'orderItems',
+      populate: {
+        path: 'orderedProducts',
+        populate: {
+          path: 'product',
+        },
+      },
+    })
+    .populate({
+      path: 'orderItems',
+      populate: { path: 'seller', select: 'fullName _id' },
+    });
   res.status(StatusCodes.OK).json({ userOrder });
 };
 
 export const userGetAllOrderItem = async (req, res) => {
-  const userOrderItems = await OrderItem.find({ user: req.user.userId });
+  const userOrderItems = await OrderItem.find({ user: req.user.userId })
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ userOrderItems });
 };
 
 export const userGetSingleOrderItem = async (req, res) => {
-  const userOrderItem = await OrderItem.findById(req.params.orderItemId);
+  const userOrderItem = await OrderItem.findById(req.params.orderItemId)
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ userOrderItem });
 };
 
 export const sellerGetAllOrderItem = async (req, res) => {
-  const sellerOrderItems = await OrderItem.find({ seller: req.user.userId });
+  const sellerOrderItems = await OrderItem.find({ seller: req.user.userId })
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ sellerOrderItems });
 };
 
 export const sellerGetSingleOrderItems = async (req, res) => {
-  const sellerOrderItem = await OrderItem.findById(req.params.orderItemId);
+  const sellerOrderItem = await OrderItem.findById(req.params.orderItemId)
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ sellerOrderItem });
 };
 
@@ -371,12 +451,82 @@ export const sellerPatchToReturned = async (req, res) => {
   });
 };
 
+export const userGetHistories = async (req, res) => {
+  const userHistories = await UserHistory.find({ user: req.user.userId })
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
+  res.status(StatusCodes.OK).json({ userHistories });
+};
 export const userGetHistory = async (req, res) => {
-  const userHistory = await UserHistory.find({ user: req.user.userId });
+  const userHistory = await UserHistory.findById(req.params.userHistoryId)
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ userHistory });
 };
 
+export const sellerGetHistories = async (req, res) => {
+  const sellerHistories = await SellerHistory.find({ seller: req.user.userId })
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
+  res.status(StatusCodes.OK).json({ sellerHistories });
+};
+
 export const sellerGetHistory = async (req, res) => {
-  const sellerHistory = await SellerHistory.find({ user: req.user.userId });
+  const sellerHistory = await SellerHistory.findById(req.params.sellerHistoryId)
+    .populate({
+      path: 'orderedProducts',
+      populate: {
+        path: 'product',
+      },
+    })
+    .populate({
+      path: 'user',
+      select: 'fullName _id',
+    })
+    .populate({
+      path: 'seller',
+      select: 'fullName _id',
+    });
   res.status(StatusCodes.OK).json({ sellerHistory });
+};
+
+export const paymentIntent = async (req, res) => {
+  const { amount } = req.body;
+  res.send('asdghkshadkjashdjkh');
 };

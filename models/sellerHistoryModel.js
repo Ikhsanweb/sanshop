@@ -4,7 +4,7 @@ const SellerHistorySchema = new mongoose.Schema({
   orderedProducts: [
     {
       type: mongoose.Types.ObjectId,
-      ref: 'UserHistoryItem',
+      ref: 'SellerHistoryItem',
       required: true,
     },
   ],

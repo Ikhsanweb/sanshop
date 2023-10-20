@@ -9,7 +9,7 @@ const CategorySchema = new mongoose.Schema({
     type: String,
   },
   color: {
-    tye: String,
+    type: String,
   },
 });
 

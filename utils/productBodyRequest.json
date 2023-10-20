@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Supra",
+    "description": "Oth intentional self-harm by drown, sequela",
+    "richDescription": "Other intentional self-harm by drowning and submersion, sequela",
+    "brand": "Toyota",
+    "price": 4897,
+    "category": "car",
+    "countInStock": 7
+  },
+  {
+    "name": "Ram 3500",
+    "description": "Rheumatic mitral valve disease, unspecified",
+    "richDescription": "Rheumatic mitral valve disease, unspecified",
+    "brand": "Dodge",
+    "price": 651,
+    "category": "car",
+    "countInStock": 12
+  },
+  {
+    "name": "Suburban 1500",
+    "description": "Adverse effect of tetracyclines, subsequent encounter",
+    "richDescription": "Adverse effect of tetracyclines, subsequent encounter",
+    "brand": "GMC",
+    "price": 2114,
+    "category": "car",
+    "countInStock": 18
+  },
+  {
+    "name": "Cooper",
+    "description": "Epidural hemorrhage w LOC >24 hr w ret consc lev, sequela",
+    "richDescription": "Epidural hemorrhage with loss of consciousness greater than 24 hours with return to pre-existing conscious level, sequela",
+    "brand": "MINI",
+    "price": 3549,
+    "category": "car",
+    "countInStock": 31
+  },
+  {
+    "name": "88",
+    "description": "Malignant neoplasm of right olfactory nerve",
+    "richDescription": "Malignant neoplasm of right olfactory nerve",
+    "brand": "Oldsmobile",
+    "price": 3053,
+    "category": "car",
+    "countInStock": 18
+  },
+  {
+    "name": "Sable",
+    "description": "Laceration of lung",
+    "richDescription": "Laceration of lung",
+    "brand": "Mercury",
+    "price": 4514,
+    "category": "car",
+    "countInStock": 32
+  },
+  {
+    "name": "XC70",
+    "description": "Other nondisp fx of upper end of unspecified humerus",
+    "richDescription": "Other nondisplaced fracture of upper end of unspecified humerus",
+    "brand": "Volvo",
+    "price": 730,
+    "category": "car",
+    "countInStock": 35
+  },
+  {
+    "name": "Virage",
+    "description": "Struck by football, sequela",
+    "richDescription": "Struck by football, sequela",
+    "brand": "Aston Martin",
+    "price": 1392,
+    "category": "car",
+    "countInStock": 27
+  },
+  {
+    "name": "Golf",
+    "description": "Tenonitis of unspecified orbit",
+    "richDescription": "Tenonitis of unspecified orbit",
+    "brand": "Volkswagen",
+    "price": 4430,
+    "category": "car",
+    "countInStock": 33
+  },
+  {
+    "name": "I",
+    "description": "Inj oth blood vessels at shldr/up arm, right arm, sequela",
+    "richDescription": "Other specified injury of other specified blood vessels at shoulder and upper arm level, right arm, sequela",
+    "brand": "Infiniti",
+    "price": 283,
+    "category": "car",
+    "countInStock": 39
+  },
+  {
+    "name": "set chair",
+    "description": "Unspecified open wound, left hip, subsequent encounter",
+    "richDescription": "Unspecified open wound, left hip, subsequent encounter",
+    "brand": "ikea",
+    "price": 3434,
+    "category": "other",
+    "countInStock": 8
+  },
+  {
+    "name": "thin rack",
+    "description": "Irritant contact dermatitis due to solvents",
+    "richDescription": "Irritant contact dermatitis due to solvents",
+    "brand": "ikea",
+    "price": 4229,
+    "category": "other",
+    "countInStock": 30
+  },
+  {
+    "name": "living room set",
+    "description": "Toxic effect of contact w venomous frog, self-harm, subs",
+    "richDescription": "Toxic effect of contact with venomous frog, intentional self-harm, subsequent encounter",
+    "brand": "ikea",
+    "price": 545,
+    "category": "other",
+    "countInStock": 36
+  },
+  {
+    "name": "rattan chair",
+    "description": "Low lying placenta with hemorrhage, unspecified trimester",
+    "richDescription": "Low lying placenta with hemorrhage, unspecified trimester",
+    "brand": "ikea",
+    "price": 1296,
+    "category": "other",
+    "countInStock": 35
+  },
+  {
+    "name": "iron shelf",
+    "description": "Acute dacryocystitis of unspecified lacrimal passage",
+    "richDescription": "Acute dacryocystitis of unspecified lacrimal passage",
+    "brand": "ikea",
+    "price": 1275,
+    "category": "other",
+    "countInStock": 23
+  },
+  {
+    "name": "bed set",
+    "description": "Displaced oth extrartic fx r calcaneus, init for opn fx",
+    "richDescription": "Displaced other extraarticular fracture of right calcaneus, initial encounter for open fracture",
+    "brand": "ikea",
+    "price": 244,
+    "category": "other",
+    "countInStock": 25
+  },
+  {
+    "name": "study room set",
+    "description": "Foreign body granuloma of soft tissue, NEC, unsp forearm",
+    "richDescription": "Foreign body granuloma of soft tissue, not elsewhere classified, unspecified forearm",
+    "brand": "ikea",
+    "price": 493,
+    "category": "other",
+    "countInStock": 38
+  },
+  {
+    "name": "trash can",
+    "description": "Nondisp fx of med epicondyl of l humer, 7thG",
+    "richDescription": "Nondisplaced fracture (avulsion) of medial epicondyle of left humerus, subsequent encounter for fracture with delayed healing",
+    "brand": "mizetto",
+    "price": 860,
+    "category": "other",
+    "countInStock": 26
+  },
+  {
+    "name": "sofa",
+    "description": "Postproc hematoma of the spleen following other procedure",
+    "richDescription": "Postprocedural hematoma of the spleen following other procedure",
+    "brand": "lotus",
+    "price": 4299,
+    "category": "other",
+    "countInStock": 20
+  },
+  {
+    "name": "dining table",
+    "description": "Underdosing of other anti-common-cold drugs, sequela",
+    "richDescription": "Underdosing of other anti-common-cold drugs, sequela",
+    "brand": "lotus",
+    "price": 1003,
+    "category": "other",
+    "countInStock": 38
+  },
+  {
+    "name": "plate sneaker",
+    "description": "Juvenile osteochondrosis of tarsus, right ankle",
+    "richDescription": "Juvenile osteochondrosis of tarsus, right ankle",
+    "brand": "namec",
+    "price": 2072,
+    "category": "clothes",
+    "countInStock": 17
+  },
+  {
+    "name": "white shirt",
+    "description": "Other forms of anthrax",
+    "richDescription": "Other forms of anthrax",
+    "brand": "bilabong",
+    "price": 1359,
+    "category": "clothes",
+    "countInStock": 6
+  },
+  {
+    "name": "brain jacket",
+    "description": "Arachnophobia",
+    "richDescription": "Arachnophobia",
+    "brand": "bilabong",
+    "price": 4128,
+    "category": "clothes",
+    "countInStock": 9
+  },
+  {
+    "name": "small blanket",
+    "description": "Corrosion of second degree of left thigh, subs encntr",
+    "richDescription": "Corrosion of second degree of left thigh, subsequent encounter",
+    "brand": "bilabong",
+    "price": 1654,
+    "category": "clothes",
+    "countInStock": 32
+  },
+  {
+    "name": "nose hat",
+    "description": "Pnctr of abd wl w/o fb,periumb rgn w/o penet perit cav, init",
+    "richDescription": "Puncture wound of abdominal wall without foreign body, periumbilic region without penetration into peritoneal cavity, initial encounter",
+    "brand": "bilabong",
+    "price": 3629,
+    "category": "clothes",
+    "countInStock": 18
+  },
+  {
+    "name": "nose hat",
+    "description": "Toxic effect of contact w oth venom animals, asslt, sequela",
+    "richDescription": "Toxic effect of contact with other venomous animals, assault, sequela",
+    "brand": "wiiiiiixxx",
+    "price": 162,
+    "category": "clothes",
+    "countInStock": 10
+  },
+  {
+    "name": "brain jacket",
+    "description": "Disp fx of nk of r rad, 7thN",
+    "richDescription": "Displaced fracture of neck of right radius, subsequent encounter for open fracture type IIIA, IIIB, or IIIC with nonunion",
+    "brand": "namec",
+    "price": 3923,
+    "category": "clothes",
+    "countInStock": 22
+  },
+  {
+    "name": "brain jacket",
+    "description": "Severely displaced Zone II fracture of sacrum",
+    "richDescription": "Severely displaced Zone II fracture of sacrum",
+    "brand": "bilabong",
+    "price": 3222,
+    "category": "clothes",
+    "countInStock": 8
+  },
+  {
+    "name": "white shirt",
+    "description": "Nondisp suprcndl fx w/o intrcndl extn low end unsp femr,7thK",
+    "richDescription": "Nondisplaced supracondylar fracture without intracondylar extension of lower end of unspecified femur, subsequent encounter for closed fracture with nonunion",
+    "brand": "wiiiiiixxx",
+    "price": 2799,
+    "category": "clothes",
+    "countInStock": 13
+  },
+  {
+    "name": "skull shirt",
+    "description": "Chronic inflammatory demyelinating polyneuritis",
+    "richDescription": "Chronic inflammatory demyelinating polyneuritis",
+    "brand": "wiiiiiixxx",
+    "price": 2812,
+    "category": "clothes",
+    "countInStock": 39
+  }
+]

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   sellerGetAllOrderItem,
+  sellerGetHistories,
   sellerGetHistory,
   sellerGetSingleOrderItems,
   sellerPatchToDelivered,
@@ -8,6 +9,7 @@ import {
   sellerPatchToShipping,
   userCreateOrder,
   userGetAllOrderItem,
+  userGetHistories,
   userGetHistory,
   userGetOrder,
   userGetOrders,
@@ -77,8 +79,19 @@ router.patch('/seller/to-returned/:orderItemId', [
   validateUpdateToReturnedOrderItemInput,
   sellerPatchToReturned,
 ]);
-router.get('/user/get-history', [authorizePermissions('user'), userGetHistory]);
+router.get('/user/get-history', [
+  authorizePermissions('user'),
+  userGetHistories,
+]);
+router.get('/user/get-history/:userHistoryId', [
+  authorizePermissions('user'),
+  userGetHistory,
+]);
 router.get('/seller/get-history', [
+  authorizePermissions('seller'),
+  sellerGetHistories,
+]);
+router.get('/seller/get-history/:sellerHistoryId', [
   authorizePermissions('seller'),
   sellerGetHistory,
 ]);

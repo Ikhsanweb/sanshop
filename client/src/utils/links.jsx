@@ -1,36 +1,46 @@
 import React from 'react';
 
-import { IoBarChartSharp } from 'react-icons/io5';
-import { MdQueryStats } from 'react-icons/md';
-import { FaWpforms } from 'react-icons/fa';
-import { ImProfile } from 'react-icons/im';
-import { MdAdminPanelSettings } from 'react-icons/md';
+import { IoStatsChart } from 'react-icons/io5';
+import { MdAccountCircle } from 'react-icons/md';
+import { FaList, FaShopify } from 'react-icons/fa';
+import { ImFeed, ImHome3 } from 'react-icons/im';
+import {} from 'react-icons/md';
 
 const links = [
   {
-    text: 'add job',
+    icon: <ImHome3 />,
+    text: 'Home',
     path: '.',
-    icon: <FaWpforms />,
   },
   {
-    text: 'all jobs',
-    path: 'all-jobs',
-    icon: <MdQueryStats />,
+    icon: <FaShopify />,
+    text: 'Store',
+    path: 'store',
   },
   {
-    text: 'stats',
+    icon: <IoStatsChart />,
+    text: 'Stats',
     path: 'stats',
-    icon: <IoBarChartSharp />,
   },
   {
-    text: 'profile',
-    path: 'profile',
-    icon: <ImProfile />,
+    icon: <ImFeed />,
+    text: 'Feed',
+    path: 'feed',
   },
   {
-    text: 'admin',
-    path: 'admin',
-    icon: <MdAdminPanelSettings />,
+    icon: <FaList />,
+    text: 'History',
+    path: 'user-histories',
+  },
+  {
+    icon: <FaList />,
+    text: 'History',
+    path: 'seller-histories',
+  },
+  {
+    icon: <MdAccountCircle />,
+    text: 'Account',
+    path: 'account-information',
   },
 ];
 

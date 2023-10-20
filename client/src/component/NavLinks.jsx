@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from 'react-router-dom';
 import links from '../utils/links';
-import { useDashboardContext } from '../routes/DashboardLayout';
+import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
+// import { useDashboardContext } from '../routes/DashboardLayout';
 
 const NavLinks = ({ isBigSidebar }) => {
   const { toggleSidebar, user } = useDashboardContext();
@@ -10,7 +11,12 @@ const NavLinks = ({ isBigSidebar }) => {
       {links.map((link) => {
         const { text, path, icon } = link;
         const { role } = user;
-        if (path === 'admin' && role !== 'admin') return;
+        if (path === '.' && role !== 'user') return;
+        if (path === 'user-histories' && role !== 'user') return;
+        if (path === 'seller-histories' && role !== 'seller') return;
+        if (path === 'store' && role !== 'seller') return;
+        if (path === 'store' && role !== 'seller') return;
+        if (path === 'stats' && role !== 'admin') return;
         return (
           <NavLink
             to={path}

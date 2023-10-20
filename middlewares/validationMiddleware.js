@@ -69,14 +69,13 @@ export const validateProductInput = withValidationErrors([
   body('richDescription')
     .notEmpty()
     .withMessage('rich description is required'),
-  body('image').notEmpty().withMessage('image is required'),
   body('brand').notEmpty().withMessage('brand is required'),
   body('price').notEmpty().withMessage('price is required'),
   body('category').custom(async (value, { req }) => {
     const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidMongoId)
       throw new BadRequestError(
-        'Invalid MongoDB id for collection in req.body product'
+        'Invalid MongoDB id for collection in req.body categoryId'
       );
 
     const category = await Category.findById(value);
@@ -85,13 +84,26 @@ export const validateProductInput = withValidationErrors([
   body('countInStock').notEmpty().withMessage('count in stock is required'),
 ]);
 
-export const validateProductIdParam = withValidationErrors([
+export const validateProductIdUserParam = withValidationErrors([
   param('productId').custom(async (value, { req }) => {
     const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidMongoId) throw new BadRequestError('Invalid MongoDB id');
 
     const product = await Product.findById(value);
     if (!product) throw new NotFoundError(`no product with id ${value}`);
+  }),
+]);
+
+export const validateProductIdSellerParam = withValidationErrors([
+  param('productId').custom(async (value, { req }) => {
+    const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
+    if (!isValidMongoId) throw new BadRequestError('Invalid MongoDB id');
+
+    const product = await Product.findById(value);
+    if (!product) throw new NotFoundError(`no product with id ${value}`);
+
+    if (product.createdBy.toString() !== req.user.userId)
+      throw new UnauthorizedError('not authorized to access this route');
   }),
 ]);
 

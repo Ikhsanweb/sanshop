@@ -1,71 +1,87 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Outlet, redirect, useLoaderData, useNavigate } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Dashboard';
 import customFetch from '../utils/customFetch';
-import { createContext, useContext, useState } from 'react';
 import { BigSidebar, Navbar, SmallSidebar } from '../component';
 import { checkDefaultTheme } from '../App';
 import BottomNavbar from '../component/BottomNavbar';
+import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 
 const DashboardContext = createContext();
 
-export const loader = async () => {
+export const loader = async ({ request }) => {
   try {
-    const { data } = await customFetch.get('/users/get-current-user');
-    return data;
+    const {
+      data: { user: takedUser },
+    } = await customFetch.get('/users/get-current-user');
+    const {
+      data: { products, featuredProducts },
+    } = await customFetch.get('/products');
+    const response = { takedUser, products, featuredProducts };
+    return { response };
   } catch (error) {
     return redirect('/');
   }
 };
 
+// export const action = async ({ request }) => {
+//   const formData = await request.formData();
+//   const data = await Object.fromEntries(formData);
+
+//   console.log(data);
+
+//   return null;
+// };
+
 const DashboardLayout = () => {
-  const { user } = useLoaderData();
-  const navigate = useNavigate();
+  const {
+    response: {
+      takedUser,
+      featuredProducts: takedFeaturedProducts,
+      products: takedProducts,
+    },
+  } = useLoaderData();
 
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
+  const {
+    user,
+    setUser,
+    products,
+    setProducts,
+    featuredProducts,
+    setFeaturedProducts,
+  } = useDashboardContext();
 
-  const toggleDarkTheme = () => {
-    const newDarkTheme = !isDarkTheme;
-    setIsDarkTheme(newDarkTheme);
-    document.body.classList.toggle('dark-theme', newDarkTheme);
-    localStorage.setItem('darkTheme', newDarkTheme);
-  };
+  // setUser(takedUser);
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+  useEffect(() => {
+    setUser(takedUser);
+    setProducts(takedProducts);
+    setFeaturedProducts(takedFeaturedProducts);
+  }, [
+    setUser,
+    takedUser,
+    setProducts,
+    takedProducts,
+    setFeaturedProducts,
+    takedFeaturedProducts,
+  ]);
 
-  const logoutUser = async () => {
-    navigate('/');
-    await customFetch.get('/authentications/logout');
-  };
   return (
-    <DashboardContext.Provider
-      value={{
-        user,
-        showSidebar,
-        isDarkTheme,
-        toggleDarkTheme,
-        toggleSidebar,
-        logoutUser,
-      }}
-    >
-      <Wrapper>
-        <main className="dashboard">
-          <SmallSidebar />
-          <BigSidebar />
-          <div>
-            <Navbar />
-            <div className="dashboard-page">
-              <Outlet context={{ user }} />
-            </div>
-            <BottomNavbar />
+    <Wrapper>
+      <main className="dashboard">
+        <SmallSidebar />
+        <BigSidebar />
+        <div>
+          <Navbar />
+          <div className="dashboard-page">
+            <Outlet />
           </div>
-        </main>
-      </Wrapper>
-    </DashboardContext.Provider>
+          <BottomNavbar />
+        </div>
+      </main>
+    </Wrapper>
   );
 };
-export const useDashboardContext = () => useContext(DashboardContext);
 export default DashboardLayout;

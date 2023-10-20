@@ -12,6 +12,9 @@ const OrderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  stripePaymentIntentId: {
+    type: String,
+  },
   user: {
     type: mongoose.Types.ObjectId,
     ref: 'User',

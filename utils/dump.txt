@@ -1,0 +1,168 @@
+
+  const tempData = [
+    {
+      id: 1,
+      brand: 'gladdd',
+      quantity: 5,
+      name: 'a',
+      price: 100,
+      createdBy: { id: '1', phoneNumber: '123456', fullName: 'gladdd' },
+    },
+    {
+      id: 2,
+      brand: 'medieval',
+      quantity: 4,
+      name: 's',
+      price: 100,
+      createdBy: { id: '4', phoneNumber: '123456', fullName: 'medieval' },
+    },
+    {
+      id: 3,
+      brand: 'gladdd',
+      quantity: 3,
+      name: 'd',
+      price: 100,
+      createdBy: { id: '1', phoneNumber: '123456', fullName: 'gladdd' },
+    },
+    {
+      id: 4,
+      brand: 'vans',
+      quantity: 2,
+      name: 'f',
+      price: 100,
+      createdBy: { id: '3', phoneNumber: '123456', fullName: 'vans' },
+    },
+    {
+      id: 5,
+      brand: 'gladdd',
+      quantity: 1,
+      name: 'g',
+      price: 100,
+      createdBy: { id: '1', phoneNumber: '123456', fullName: 'gladdd' },
+    },
+    {
+      id: 6,
+      brand: 'giorgio',
+      quantity: 2,
+      name: 'h',
+      price: 100,
+      createdBy: { id: '2', phoneNumber: '123456', fullName: 'giorgio' },
+    },
+    {
+      id: 7,
+      brand: 'giorgio',
+      quantity: 3,
+      name: 'j',
+      price: 100,
+      createdBy: { id: '2', phoneNumber: '123456', fullName: 'giorgio' },
+    },
+    {
+      id: 8,
+      brand: 'tr',
+      quantity: 4,
+      name: 'g',
+      price: 100,
+      createdBy: { id: '5', phoneNumber: '123456', fullName: 'tr' },
+    },
+    {
+      id: 9,
+      brand: 'tr',
+      quantity: 5,
+      name: 'q',
+      price: 100,
+      createdBy: { id: '5', phoneNumber: '123456', fullName: 'tr' },
+    },
+    {
+      id: 10,
+      brand: 'gladdd',
+      quantity: 6,
+      name: 'qe',
+      price: 100,
+      createdBy: { id: '1', phoneNumber: '123456', fullName: 'gladdd' },
+    },
+    {
+      id: 11,
+      brand: 'medieval',
+      quantity: 7,
+      name: 'w',
+      price: 100,
+      createdBy: { id: '4', phoneNumber: '123456', fullName: 'medieval' },
+    },
+    {
+      id: 12,
+      brand: 'wilio',
+      quantity: 8,
+      name: 'r',
+      price: 100,
+      createdBy: { id: '6', phoneNumber: '123456', fullName: 'wilio' },
+    },
+    {
+      id: 13,
+      brand: 'medieval',
+      quantity: 9,
+      name: 'c',
+      price: 100,
+      createdBy: { id: '4', phoneNumber: '123456', fullName: 'medieval' },
+    },
+    {
+      id: 14,
+      brand: 'gladdd',
+      quantity: 8,
+      name: 'b',
+      price: 100,
+      createdBy: { id: '1', phoneNumber: '123456', fullName: 'gladdd' },
+    },
+    {
+      id: 15,
+      brand: 'giorgio',
+      quantity: 7,
+      name: 'l',
+      price: 100,
+      createdBy: { id: '2', phoneNumber: '123456', fullName: 'giorgio' },
+    },
+  ];
+
+  // const sortedData = tempData.sort((a, b) => {
+  //   let fa = a.brand.toLowerCase();
+  //   let fb = b.brand.toLowerCase();
+
+  //   if (fa < fb) {
+  //     return -1;
+  //   }
+  //   if (fa > fb) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // });
+  // const sellerOnly = tempData.map((cartItem) => cartItem.createdBy.fullName);
+  // const sellerUnique = sellerOnly.filter((v, i, a) => a.indexOf(v) === i);
+  // const sellerUniqueArray = sellerUnique.map((sellerFullName) => {
+  //   return { sellerName: sellerFullName, products: [] };
+  // });
+
+  // tempData.map((cartItem) => {
+  //   sellerUnique.map((sellerFullName, i) => {
+  //     if (sellerFullName === cartItem.createdBy.fullName) {
+  //       if (sellerUniqueArray[i].sellerName === cartItem.createdBy.fullName) {
+  //         return sellerUniqueArray[i].products.push(cartItem);
+  //       }
+  //     }
+  //   });
+  // });
+
+  // console.log(sellerUniqueArray);
+
+  const element = {
+    id: 6,
+    brand: 'giorgio',
+    quantity: 2,
+    name: 'h',
+    price: 100,
+    createdBy: { id: '2', phoneNumber: '123456', fullName: 'giorgio' },
+  };
+  // const elementToRemove = tempData.map((e) => e.id).indexOf(element.id);
+  // tempData.splice(elementToRemove, 1);
+  // console.log(elementToRemove);
+  // const tempDataLength = tempData.length;
+  // console.log(tempDataLength);
+  // console.log(tempData);

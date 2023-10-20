@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
-import { Form, redirect } from 'react-router-dom';
+import { Form, Link, redirect } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SignPage';
 import TempButton from '../component/TempButton';
 import { FormRow, Logo, SubmitBtn } from '../component';
@@ -11,8 +11,13 @@ export const action = async ({ request }) => {
   const data = await Object.fromEntries(formData);
 
   try {
-    await customFetch.post('/authentications/login', data);
-    return redirect('/dashboard');
+    const response = await customFetch.post('/authentications/login', data);
+    // return redirect('/dashboard');
+    const {
+      data: { user: takedUser },
+    } = await customFetch.get('/users/get-current-user');
+    if (takedUser.role === 'user') return redirect('/dashboard');
+    if (takedUser.role === 'seller') return redirect('/dashboard/store');
   } catch (error) {
     console.log(error);
     return error;
@@ -22,23 +27,19 @@ export const action = async ({ request }) => {
 const SignInPage = () => {
   return (
     <Wrapper>
-      <Form method="post">
-        <Logo />
-        <h3
-          style={{
-            margin: '20px 0',
-            textAlign: 'center',
-            color: 'var(--primary-500)',
-          }}
-        >
-          Sign Up Page
-        </h3>
-        <FormRow type="email" name="email" defaultValue="fool@ugly.co.fool" />
-        <FormRow type="password" name="password" defaultValue="secret123" />
-        <SubmitBtn />
-      </Form>
-      <div>
-        <TempButton text="Back to Landing" path="/" />
+      <div className="container">
+        <Form method="post">
+          <div className="top-container">
+            <Logo />
+            <h2>Don{`'t`} have an account?</h2>
+            <span>
+              <Link to="/sign-up">Sign up</Link> with your email and password
+            </span>
+          </div>
+          <FormRow type="email" name="email" defaultValue="@bankrupt.com" />
+          <FormRow type="password" name="password" defaultValue="secret123" />
+          <SubmitBtn />
+        </Form>
       </div>
     </Wrapper>
   );

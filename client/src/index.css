@@ -14,7 +14,7 @@ html {
 
 :root {
   /* colors */
-  --primary-50: #cbf5f8;
+  --primary-50: #e2fcfc;
   --primary-200: #9ae6ed;
   --primary-300: #39c9d6;
   --primary-400: #09baca;
@@ -43,17 +43,23 @@ html {
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
+  --the-primary: #0096ec;
+  --the-secondary: rgba(214, 0, 186, 0.933);
+  /* --the-tertiary: ;
+  --the-quartenary: ; */
+
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
 
-  --border-radius: 0.25rem;
+  /* --border-radius: 0.25rem; */
+  --border-radius: 0;
   --letter-spacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
   --fluid-width: 90vw;
-  --nav-height: 6rem;
+  --nav-height: 4rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -64,15 +70,21 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   /* DARK MODE */
 
-  --dark-mode-bg-color: #38173a;
-  --dark-mode-text-color: #d2a3d3;
-  --dark-mode-bg-secondary-color: #603e75;
-  --dark-mode-text-secondary-color: var(--grey-300);
+  --dark-mode-bg-color: #222222;
+  --dark-mode-text-color: #efe1d1;
+  --dark-mode-bg-secondary-color: #37474f;
+  --dark-mode-text-secondary-color: #a78295;
 
-  --background-color: var(--grey-50);
-  --text-color: var(--grey-900);
-  --background-secondary-color: var(--white);
-  --text-secondary-color: var(--grey-500);
+  --dark-mode-the-primary-color: #47a2d6;
+  --dark-mode-the-secondary-color: #50d4c9;
+
+  --background-color: #eafdff;
+  --text-color: var(--primary-900);
+  --background-secondary-color: #dee4e7;
+  --text-secondary-color: var(--primary-500);
+
+  --the-primary-color: #0e6699;
+  --the-secondary-color: #0f9e92;
 }
 
 .dark-theme {
@@ -80,6 +92,8 @@ html {
   --background-color: var(--dark-mode-bg-color);
   --text-secondary-color: var(--dark-mode-text-secondary-color);
   --background-secondary-color: var(--dark-mode-bg-secondary-color);
+  --the-primary-color: var(--dark-mode-the-primary-color);
+  --the-secondary-color: var(--dark-mode-the-secondary-color);
 }
 
 body {
@@ -159,6 +173,7 @@ small,
 
 a {
   text-decoration: none;
+  color: #e0e8f9;
 }
 ul {
   list-style-type: none;
@@ -253,7 +268,8 @@ button:disabled {
   padding: 0.375rem 0.75rem;
   border-radius: var(--border-radius);
   background: var(--background-color);
-  border: 1px solid var(--grey-300);
+  /* border: 1px solid var(--grey-300); */
+  border: 2px solid var(--the-primary);
   color: var(--text-color);
 }
 .form-input,

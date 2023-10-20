@@ -4,11 +4,12 @@ const Wrapper = styled.section`
   .dashboard {
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: 3rem;
   }
   .dashboard-page {
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
   @media (min-width: 992px) {
     .dashboard {

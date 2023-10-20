@@ -20,14 +20,13 @@ const Wrapper = styled.nav`
     padding: 0 0.5rem;
   }
   .nav-link {
-    /* background-color: aqua; */
     width: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: padding-left 0.3s ease-in-out;
-    color: black;
+    transition: padding-left 0.8s ease-in-out;
+    color: var(--text-color);
   }
   .icon {
     font-size: 2rem;
@@ -36,13 +35,14 @@ const Wrapper = styled.nav`
     font-size: 0.75rem;
   }
   .active {
-    color: var(--primary-500);
-    border: 4px solid var(--primary-500);
-    border-radius: 20px;
+    color: var(--text-color);
+    border: 4px solid var(--the-primary-color);
+    /* border-radius: 20px; */
     width: 30%;
     flex-direction: row;
     justify-content: space-around;
-    padding: 2px 5px;
+    padding: 0.25rem 5px;
+    transition: padding-left 0.8s ease-in-out;
     .icon {
       font-size: 1.75rem;
       margin-left: 0.05rem;

@@ -6,6 +6,10 @@ const app = express();
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import Stripe from 'stripe';
+import cloudinary from 'cloudinary';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // MIDDLEWARE
 import errorHandlerMiddleware from './middlewares/errorHandlerMiddleware.js';
@@ -17,10 +21,24 @@ import categoryRouter from './routes/categoryRouter.js';
 import userRouter from './routes/userRoute.js';
 import authRouter from './routes/authRouter.js';
 import { authenticateUser } from './middlewares/authMiddleware.js';
+// UPLOADS
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use(express.static(path.resolve(__dirname, './public')));
 
 app.use(cookieParser());
 app.use(express.json());
