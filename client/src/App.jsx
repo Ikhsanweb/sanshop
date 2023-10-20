@@ -56,7 +56,7 @@ import sellerProceedToReturnedAction from './routes/SellerProceedToReturned';
 import { action as updateUserAction } from './routes/UpdateUser';
 
 // IMPORTED LOADER
-import { loader as landingLoader } from './routes/Landing';
+// import { loader as landingLoader } from './routes/Landing';
 import { loader as dashboardLoader } from './routes/DashboardLayout';
 import { loader as productShowcaseLoader } from './routes/ProductShowcase';
 import { loader as orderLoader } from './routes/Order';
@@ -107,7 +107,6 @@ function App() {
         {
           index: true,
           element: <Landing />,
-          loader: landingLoader,
         },
         {
           path: 'sign-up',

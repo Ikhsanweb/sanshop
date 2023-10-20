@@ -1,6 +1,5 @@
 import { Link, redirect } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Landing';
-import TempButton from '../component/TempButton';
 import customFetch from '../utils/customFetch';
 import Button, { BUTTON_TYPE_CLASSES } from '../component/Button';
 import { Logo } from '../component';
