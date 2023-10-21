@@ -42,7 +42,7 @@ app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.use(cookieParser());
 app.use(express.json());
-// ---------------------- testing purpose ----------------------
+// ----------------------- testing purpose -----------------------
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
