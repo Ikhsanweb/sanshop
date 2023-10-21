@@ -42,7 +42,7 @@ app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.use(cookieParser());
 app.use(express.json());
-
+// ---------------------- testing purpose ----------------------
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
@@ -52,6 +52,7 @@ app.post('/', (req, res) => {
 app.get('/api/v1/test', (req, res) => {
   res.json({ message: 'test route (second attemp)' });
 });
+// ---------------------- testing purpose ----------------------
 
 // ROUTER
 app.use('/api/v1/products', authenticateUser, productRouter);
