@@ -52,7 +52,7 @@ app.post('/', (req, res) => {
 app.get('/api/v1/test', (req, res) => {
   res.json({ message: 'test route (second attemp)' });
 });
-// ---------------------- testing purpose ----------------------
+// --------------------- testing purpose ---------------------
 
 // ROUTER
 app.use('/api/v1/products', authenticateUser, productRouter);
