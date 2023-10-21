@@ -4,6 +4,6 @@ const Wrapper = styled.div`
   padding: 1rem;
   background-color: var(--the-primary-color);
   width: 100%;
-  color: var(--text-color);
+  color: white;
 `;
 export default Wrapper;

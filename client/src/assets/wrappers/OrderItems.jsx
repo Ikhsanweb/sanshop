@@ -20,7 +20,7 @@ const Wrapper = styled.div`
       .order-item-title-order-item-title {
         border-bottom: 5px solid var(--the-primary-color);
         padding: 1rem;
-        color: var(--text-color);
+        color: white;
         text-align: center;
         .order-item-order-item {
           /* text-align: center; */
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
             .image {
               width: 100%;
               height: 100px;
-              background-color: crimson;
+              background-color: transparent;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
           background-color: var(--the-primary-color);
           border-bottom: 5px solid var(--the-primary-color);
           padding: 1rem;
-          color: var(--text-color);
+          color: white;
           text-align: center;
         }
         .user-address-info {

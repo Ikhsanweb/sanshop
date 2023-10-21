@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.use(cookieParser());
 app.use(express.json());
@@ -59,6 +59,10 @@ app.use('/api/v1/orders', authenticateUser, orderRouter);
 app.use('/api/v1/categories', authenticateUser, categoryRouter);
 app.use('/api/v1/users', authenticateUser, userRouter);
 app.use('/api/v1/authentications', authRouter);
+
+app.use('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
+});
 
 app.use('*', (req, res) => {
   res.status(404).json({ message: 'not found' });

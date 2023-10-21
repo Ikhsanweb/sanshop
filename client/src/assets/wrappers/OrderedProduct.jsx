@@ -24,10 +24,12 @@ const Wrapper = styled.div`
   .right {
     width: 70%;
     padding: 1rem;
+    color: var(--text-color);
     .ordered-products-total {
       margin-top: 1rem;
       display: flex;
       justify-content: space-between;
+      color: var(--text-color);
       .ordered-products-total-info {
         display: flex;
         h3 {

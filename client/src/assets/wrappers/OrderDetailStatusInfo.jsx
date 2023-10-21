@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  color: var(--text-color);
   .order-detail-status-status {
     .order-detail-status-text {
       margin-bottom: 1rem;
