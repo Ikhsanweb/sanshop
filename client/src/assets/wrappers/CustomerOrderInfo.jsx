@@ -6,12 +6,23 @@ const Wrapper = styled.div`
     padding: 1rem;
     color: white;
     text-align: center;
+    h3 {
+      font-size: 1rem;
+    }
   }
   .user-address-info {
     padding: 1rem;
     color: var(--text-color);
     .user-address-info-item {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
+      h5 {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+      h3 {
+        font-size: 1rem;
+        margin-left: 0.25rem;
+      }
     }
   }
 `;

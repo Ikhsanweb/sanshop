@@ -6,6 +6,18 @@ import TempButton from '../component/TempButton';
 import { FormRow, FormRowSelect, Logo, SubmitBtn } from '../component';
 import customFetch from '../utils/customFetch';
 
+export const loader = async () => {
+  try {
+    const { data } = await customFetch.get('/users/get-current-user');
+    if (data) {
+      return redirect('/dashboard');
+    }
+    return null;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = await Object.fromEntries(formData);

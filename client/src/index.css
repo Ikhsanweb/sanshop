@@ -52,6 +52,19 @@ html {
   --extra-small-text: 0.7em;
   /* rest of the vars */
 
+  /* res-font */
+  --rf-mobile-normal: calc(15px + 0.39062vw);
+  --rf-mobile-small: calc(12px + 0.39062vw);
+  --rf-mobile-large: calc(18px + 0.39062vw);
+
+  --rf-tab-normal: calc(18px + 0.39062vw);
+  --rf-tab-small: calc(15px + 0.39062vw);
+  --rf-tab-large: calc(20px + 0.39062vw);
+
+  --rf-full-normal: calc(20px + 0.39062vw);
+  --rf-full-small: calc(18px + 0.39062vw);
+  --rf-full-large: calc(25px + 0.39062vw);
+
   /* --border-radius: 0.25rem; */
   --border-radius: 0;
   --letter-spacing: 1px;
@@ -279,6 +292,15 @@ button:disabled {
 }
 .form-row {
   margin-bottom: 1rem;
+}
+
+.search-bar {
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--border-radius);
+  background: var(--background-color);
+  /* border: 1px solid var(--grey-300); */
+  border: 2px solid var(--the-primary);
+  color: var(--text-color);
 }
 
 .form-textarea {

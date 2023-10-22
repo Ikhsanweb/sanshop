@@ -11,6 +11,7 @@ const Wrapper = styled.nav`
   right: 0;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  border-top: 4px solid rgba(0, 0, 0, 0.123);
   .nav-links {
     display: flex;
     justify-content: space-around;
@@ -27,16 +28,15 @@ const Wrapper = styled.nav`
     align-items: center;
     transition: padding-left 0.8s ease-in-out;
     color: var(--text-color);
-  }
-  .icon {
-    font-size: 2rem;
-  }
-  .text-icon {
     font-size: 0.75rem;
+    .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
   }
   .active {
     color: var(--text-color);
-    border: 4px solid var(--the-primary-color);
+    border: 2px solid var(--the-primary-color);
     /* border-radius: 20px; */
     width: 30%;
     flex-direction: row;
@@ -46,16 +46,32 @@ const Wrapper = styled.nav`
     .icon {
       font-size: 1.75rem;
       margin-left: 0.05rem;
+      margin-bottom: 0;
     }
     .text-icon {
       font-size: 1.05rem;
+      margin-bottom: 0;
       /* margin-left: 0.05rem; */
     }
   }
   .pending {
     background: var(--grey-50);
   }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
+    height: 50px;
+    .nav-link {
+      width: 15%;
+      font-size: 0.75rem;
+      .icon {
+        margin-right: 0.5rem;
+        font-size: 1rem;
+      }
+    }
+    .active {
+      padding: 0.25rem 0.75rem;
+    }
+  }
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

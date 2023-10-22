@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 import Button from '../component/Button';
-import BackNav from '../component/BackNav';
 
 const AccountInformation = () => {
   const { user, setUser } = useDashboardContext();
@@ -17,13 +16,13 @@ const AccountInformation = () => {
     <div>
       {user.role === 'user' && (
         <div>
-          <div>
+          {/* <div>
             <Button type="button" className="btn btn-block">
               <Link to="/order" style={{ color: 'white' }}>
                 Order List
               </Link>
             </Button>
-          </div>
+          </div> */}
           <div>
             <Button type="button" className="btn btn-block">
               <Link to="/order/order-items" style={{ color: 'white' }}>

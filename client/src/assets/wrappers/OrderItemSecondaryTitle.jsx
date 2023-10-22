@@ -5,6 +5,9 @@ const Wrapper = styled.div`
   padding: 1rem;
   color: var(--text-color);
   text-align: center;
+  h3 {
+    font-size: 1rem;
+  }
   .order-item-order-item {
     /* text-align: center; */
   }

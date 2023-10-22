@@ -58,20 +58,31 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
   }
-  @media (min-width: 992px) {
-    position: sticky;
+  @media (min-width: 768px) {
+    .search-bar {
+      width: 500px;
+    }
+  }
+  @media (min-width: 1024px) {
+    position: fixed;
     top: 0;
     .toggle-btn {
       display: flex;
+      margin-right: 2rem;
     }
     .nav-center {
       width: 90%;
+      .nav-form-row {
+      }
     }
     .logo {
       display: none;
     }
     .logo-text {
       display: block;
+    }
+    .search-bar {
+      width: 500px;
     }
   }
 `;

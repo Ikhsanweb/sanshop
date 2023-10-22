@@ -38,21 +38,22 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   padding-bottom: 1rem;
   .body {
-    padding: 0 2rem 2rem 2rem;
+    padding: 2rem;
     .card-container {
-      margin-top: 2rem;
-      border: 4px solid var(--the-primary-color);
-      padding: 1rem;
+      margin-top: 3rem;
+      border: 2px solid var(--the-primary-color);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       margin-bottom: 1rem;
-    }
-    .card-title {
+      .card-title {
+        font-size: 1rem;
+      }
     }
     .card {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       border: 1px solid var(--the-primary-color);
-      padding: 0.5rem;
+      padding: 1rem;
     }
   }
 `;

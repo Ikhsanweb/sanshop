@@ -6,10 +6,7 @@ const colorss = ['#0088fe', '#00c49f', '#ffbb28'];
 const delay = 2500;
 
 const ImageCarousel = () => {
-  // const { index, setIndex, timeoutRef, resetTimeout, colorss } =
-  //   useDashboardContext();
   const [index, setIndex] = useState(0);
-
   const timeoutRef = useRef(null);
 
   const resetTimeout = () => {

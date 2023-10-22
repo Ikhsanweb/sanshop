@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   }
   .title {
     margin-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 `;
 export default Wrapper;

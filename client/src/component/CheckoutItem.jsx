@@ -9,7 +9,11 @@ const CheckoutItem = ({ cartItem }) => {
       <div className="checkout-item-body">
         {products.map((product) => (
           <div key={product._id} className="checkout-item-product-container">
-            <div className="image-container"></div>
+            <div className="image-container">
+              {product.image && (
+                <img src={product.image} className="product-img" />
+              )}
+            </div>
             <div className="product-info-container">
               <div className="checkout-item-product-name-price">
                 <span className="checkout-item-product-name">

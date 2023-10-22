@@ -24,12 +24,12 @@ const Wrapper = styled.div`
       justify-content: center;
       align-items: center;
       padding: 0.5rem 0.5rem;
-      font-size: 1rem;
+      font-size: 0.75rem;
       .icon {
         font-size: 1.75rem;
       }
       .text-icon {
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
       }
       .avatar {
         width: 40px;
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0.5rem 0.5rem;
-    font-size: 1rem;
+    font-size: 0.75rem;
     background-color: var(--the-primary-color);
     color: white;
     .text-icon {

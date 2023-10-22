@@ -9,8 +9,8 @@ const Wrapper = styled.div`
     padding: 0.5rem;
     .image {
       width: 100%;
-      height: 100px;
-      background-color: var(--the-primary-color);
+      height: 80px;
+      background-color: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,10 +23,11 @@ const Wrapper = styled.div`
   }
   .right {
     width: 70%;
+    height: 100%;
     padding: 1rem;
     color: var(--text-color);
     .ordered-products-total {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       display: flex;
       justify-content: space-between;
       color: var(--text-color);
@@ -34,6 +35,7 @@ const Wrapper = styled.div`
         display: flex;
         h3 {
           margin-right: 0.5rem;
+          font-size: 1rem;
         }
       }
     }

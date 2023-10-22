@@ -11,10 +11,11 @@ const Wrapper = styled.div`
   padding: 2rem;
   .top-container {
     display: grid;
+    width: 80%;
     align-items: center;
     justify-items: center;
     .title {
-      font-size: 2rem;
+      font-size: var(--rf-mobile-large);
       margin-top: 1rem;
     }
     img {
@@ -22,7 +23,32 @@ const Wrapper = styled.div`
     }
   }
   .bottom-container {
-    width: 100%;
+    width: 80%;
+  }
+
+  @media (min-width: 768px) {
+    .top-container {
+      width: 60%;
+      .title {
+        font-size: var(--rf-tab-large);
+        margin-top: 0.5rem;
+      }
+    }
+    .bottom-container {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .top-container {
+      width: 35%;
+      .title {
+        font-size: var(--rf-fs-large);
+      }
+    }
+    .bottom-container {
+      width: 35%;
+    }
   }
 `;
 export default Wrapper;

@@ -44,7 +44,7 @@ const Navbar = () => {
               <input
                 type="text"
                 name="toSearch"
-                className="form-input"
+                className="search-bar"
                 placeholder="search"
                 onChange={handleToSearch}
               />

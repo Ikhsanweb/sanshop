@@ -6,8 +6,9 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   padding-bottom: 6rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   .checkout-footer {
     position: fixed;
     bottom: 0;

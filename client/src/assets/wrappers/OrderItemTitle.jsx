@@ -5,5 +5,8 @@ const Wrapper = styled.div`
   background-color: var(--the-primary-color);
   width: 100%;
   color: white;
+  h3 {
+    font-size: 1rem;
+  }
 `;
 export default Wrapper;

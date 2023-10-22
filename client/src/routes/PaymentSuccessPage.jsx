@@ -20,6 +20,9 @@ const PaymentSuccessPage = () => {
         <Button type="button">
           <Link to={`/order/order-items`}>Check your Order</Link>
         </Button>
+        <Button type="button">
+          <Link to={`/dashboard`}>Back to Home</Link>
+        </Button>
       </div>
     </Wrapper>
   );

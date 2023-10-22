@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     .product-image {
       width: 100%;
       height: 100%;
-      background-color: crimson;
+      background-color: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,15 +27,17 @@ const Wrapper = styled.div`
       justify-content: space-around;
       .product-main-info {
         .product-name {
-          font-size: 1.25rem;
+          font-size: 0.85rem;
         }
         .product-brand {
-          font-size: 0.85rem;
+          font-size: 0.75rem;
+          margin-top: 0.15rem;
           /* color: darkgray; */
         }
       }
       .product-price {
         margin-bottom: 0.5rem;
+        font-size: 0.75rem;
       }
     }
     .button-container {
@@ -49,6 +51,7 @@ const Wrapper = styled.div`
         border: none;
         color: white;
         padding: 0.1rem 0.25rem 0.1rem 0.5rem;
+        font-size: 0.75rem;
         span {
           padding: 0;
           font-size: 2rem;
