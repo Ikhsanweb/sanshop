@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     background-color: var(--the-primary-color);
     text-align: center;
     width: 100%;
-    color: var(--text-color);
+    color: white;
   }
   .order-item-body {
     .ordered-products {
@@ -78,13 +78,13 @@ const Wrapper = styled.div`
         .order-bottom-status-text {
           margin-bottom: 1rem;
           font-size: 0.95rem;
-          color: var(--text-color);
+          color: white;
           width: 100%;
           padding-top: 1rem;
           padding-left: 1rem;
         }
         .order-bottom-status-orderstatus {
-          color: var(--text-color);
+          color: white;
           font-weight: 700;
           font-size: 1rem;
           text-transform: uppercase;
@@ -93,7 +93,7 @@ const Wrapper = styled.div`
           margin-bottom: 0.5rem;
         }
         .order-bottom-status-deliverystatus {
-          color: var(--text-color);
+          color: white;
           font-weight: 700;
           font-size: 1rem;
           text-transform: uppercase;

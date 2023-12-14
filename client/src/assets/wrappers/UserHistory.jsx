@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   .order-ordered-products {
     background-color: var(--background-secondary-color);
     margin-bottom: 5rem;
-    border: 4px solid var(--the-primary-color);
+    border: 10px solid var(--the-primary-color);
     .order-item {
       color: black;
       .order-status-info {

@@ -29,3 +29,4 @@ export { default as CustomerOrderInfo } from './CustomerOrderInfo';
 export { default as OrderDetailTotalPrice } from './OrderDetailTotalPrice';
 // export { default as Order } from './Order';
 // export { default as OrderItem } from './OrderItem';
+export { default as Spinner } from './Spinner';

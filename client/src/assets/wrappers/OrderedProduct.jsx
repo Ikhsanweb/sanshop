@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  border-bottom: 4px solid var(--the-primary-color);
+  border-bottom: 5px solid var(--the-primary-color);
   .left {
     width: 30%;
     padding: 0.5rem;
@@ -26,16 +26,24 @@ const Wrapper = styled.div`
     height: 100%;
     padding: 1rem;
     color: var(--text-color);
+    margin: auto 0;
+    h2 {
+      font-size: var(--rf-mobile-normal);
+    }
     .ordered-products-total {
       margin-top: 0.75rem;
       display: flex;
       justify-content: space-between;
       color: var(--text-color);
+      h2 {
+        font-size: var(--rf-mobile-large);
+      }
       .ordered-products-total-info {
+        margin: auto 0;
         display: flex;
         h3 {
-          margin-right: 0.5rem;
-          font-size: 1rem;
+          margin-right: 1.5rem;
+          font-size: var(--rf-mobile-small);
         }
       }
     }

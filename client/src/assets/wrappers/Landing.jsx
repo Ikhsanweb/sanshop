@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   width: 100%;
   min-height: 95vh;
+  margin: auto 0;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50% 50%;
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
   padding: 2rem;
   .top-container {
     display: grid;
+    height: 30%;
     width: 80%;
     align-items: center;
     justify-items: center;
@@ -23,10 +25,38 @@ const Wrapper = styled.div`
     }
   }
   .bottom-container {
+    height: 45%;
     width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sign-up-button {
+      background-color: var(--the-primary-color);
+      border: 3px solid var(--the-primary-color);
+      height: 30px;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+    .sign-in-button {
+      background-color: var(--background-color);
+      border: 3px solid var(--the-primary-color);
+      height: 20px;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      a {
+        color: var(--text-color);
+      }
+    }
   }
 
   @media (min-width: 768px) {
+    min-height: 95vh;
     .top-container {
       width: 60%;
       .title {

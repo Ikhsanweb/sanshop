@@ -10,9 +10,17 @@ const Wrapper = styled.div`
     .top-container {
       text-align: center;
       margin-bottom: 3rem;
-      font-size: var(--rf-mobile-normal);
+      .logo {
+        width: 100%;
+        height: 4rem;
+        margin-bottom: 2rem;
+      }
       h2 {
-        margin: 0.5rem 0;
+        margin-bottom: 1rem 0;
+        font-size: var(--rf-mobile-normal);
+      }
+      span {
+        font-size: var(--rf-mobile-small);
       }
     }
     width: 100%;
@@ -20,10 +28,7 @@ const Wrapper = styled.div`
     display: grid;
     align-items: center;
     justify-items: center;
-    .logo {
-      width: 100%;
-      height: 4rem;
-    }
+
     a {
       color: var(--text-color);
       text-decoration: underline;

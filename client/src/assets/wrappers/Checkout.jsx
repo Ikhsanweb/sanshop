@@ -17,6 +17,8 @@ const Wrapper = styled.div`
     background-color: var(--background-secondary-color);
     border-top: 4px solid var(--the-primary-color);
     display: flex;
+    align-items: center;
+    justify-content: center;
     .checkout-total {
       width: 60%;
       height: 100%;
@@ -39,7 +41,11 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       margin-right: 2rem;
+      button {
+        margin: auto 0;
+      }
     }
   }
 `;

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   .checkout-item-header {
     background-color: var(--the-primary-color);
     padding: 1rem;
-    color: var(--text-color);
+    color: white;
     font-size: 1rem;
   }
   .checkout-item-body {
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 1rem;
+        font-size: var(--rf-mobile-normal);
         margin-right: 10px;
       }
     }
@@ -44,12 +44,15 @@ const Wrapper = styled.div`
     margin-top: 20px;
     margin-bottom: 10px;
     margin-left: 10px;
+    span {
+      font-size: var(--rf-mobile-large);
+    }
   }
   .checkout-item-quantity-container {
     width: 100%;
     height: max-content;
     margin: 10px 10px 10px 10px;
-    font-size: 1.5rem;
+    font-size: var(--rf-mobile-large);
     display: flex;
     align-items: center;
     justify-content: space-between;

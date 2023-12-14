@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border-top: 4px solid var(--the-primary-color);
+  border-top: 10px solid var(--the-primary-color);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -13,14 +13,14 @@ const Wrapper = styled.div`
       text-align: center;
     }
     .order-detail-status-orderstatus {
-      color: var(--text-color);
+      color: white;
       font-weight: 700;
       font-size: 1rem;
       text-transform: uppercase;
       padding: 1rem;
     }
     .order-detail-status-deliverystatus {
-      color: var(--text-color);
+      color: white;
       font-weight: 700;
       font-size: 1rem;
       text-transform: uppercase;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IoStatsChart } from 'react-icons/io5';
+import { IoChatbox, IoStatsChart } from 'react-icons/io5';
 import { MdAccountCircle } from 'react-icons/md';
 import { FaList, FaShopify } from 'react-icons/fa';
 import { ImFeed, ImHome3 } from 'react-icons/im';
@@ -36,6 +36,11 @@ const links = [
     icon: <FaList />,
     text: 'History',
     path: 'seller-histories',
+  },
+  {
+    icon: <IoChatbox />,
+    text: 'Messages',
+    path: 'chat-rooms',
   },
   {
     icon: <MdAccountCircle />,

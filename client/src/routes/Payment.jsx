@@ -23,7 +23,7 @@ const useOptions = () => {
     style: {
       base: {
         fontSize: '20px',
-        color: 'white',
+        color: 'var(--text-color)',
         letterSpacing: '0.025em',
         '::placeholder': {
           color: 'lightblue',

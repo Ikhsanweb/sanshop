@@ -43,5 +43,9 @@ export { default as UserHistory } from './UserHistory';
 export { default as SellerHistoryLayout } from './SellerHistoryLayout';
 export { default as SellerHistories } from './SellerHistories';
 export { default as SellerHistory } from './SellerHistory';
+export { default as ChatsLayout } from './ChatsLayout';
+export { default as ChatRooms } from './ChatRooms';
+export { default as ChatRoom } from './ChatRoom';
+export { default as ChatSettings } from './ChatSettings';
 
 export { default as DashboardSecond } from './DashboardSecond';

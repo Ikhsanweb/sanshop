@@ -32,6 +32,7 @@ export const DashboardProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
   const [uniqueCartItems, setUniqueCartItems] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // const sellerOnly = cartItems.map((cartItem) => {
@@ -199,6 +200,8 @@ export const DashboardProvider = ({ children }) => {
     setSearchKeyword,
     toggleCartDropdown,
     logoutUser,
+    isLoading,
+    setIsLoading,
   };
 
   return (

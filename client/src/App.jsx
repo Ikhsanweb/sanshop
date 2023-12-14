@@ -40,6 +40,10 @@ import {
   SearchPage,
   SearchByDate,
   SearchByPrice,
+  ChatsLayout,
+  ChatRooms,
+  ChatRoom,
+  ChatSettings,
 } from './routes';
 
 // IMPORTED ACTION
@@ -79,9 +83,12 @@ import { loader as sellerHistoryLoader } from './routes/SellerHistory';
 import { loader as updateUserLoader } from './routes/UpdateUser';
 import { loader as searchLayoutLoader } from './routes/SearchLayout';
 import { loader as searchPageLoader } from './routes/SearchPage';
+import { loader as chatRoomLoader } from './routes/ChatRoom';
 
 import Checkout from './routes/Checkout';
 import { DashboardProvider } from './contexts/dashboardContext/dashboardContext';
+import { Suspense } from 'react';
+import { Spinner } from './component';
 // import { useDashboardContext } from './contexts/dashboardContext/dashboardContext';
 // import CheckoutLayout from './routes/CheckoutLayout';
 // import PaymentSuccessPage from './routes/PaymentSuccessPage';
@@ -240,6 +247,25 @@ function App() {
                   path: 'history-detail/:sellerHistoryId',
                   element: <SellerHistory />,
                   loader: sellerHistoryLoader,
+                },
+              ],
+            },
+            {
+              path: 'chat-rooms',
+              element: <ChatsLayout />,
+              children: [
+                {
+                  index: true,
+                  element: <ChatRooms />,
+                },
+                {
+                  path: 'chat-room/:chatRoomId',
+                  element: <ChatRoom />,
+                  loader: chatRoomLoader,
+                },
+                {
+                  path: 'chat-settings',
+                  element: <ChatSettings />,
                 },
               ],
             },

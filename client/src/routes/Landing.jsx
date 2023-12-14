@@ -23,12 +23,12 @@ const Landing = () => {
         <h1 className="title">Explore your bags</h1>
       </div>
       <div className="bottom-container">
-        <Button buttonType={BUTTON_TYPE_CLASSES.inverted}>
+        <button className="sign-up-button btn">
           <Link to="sign-up">Sign Up</Link>
-        </Button>
-        <Button>
+        </button>
+        <button className="sign-in-button btn">
           <Link to="sign-in">Sign In</Link>
-        </Button>
+        </button>
       </div>
     </Wrapper>
   );
