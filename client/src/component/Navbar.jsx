@@ -27,8 +27,6 @@ const Navbar = () => {
       // let url = new ()
       let params = new URLSearchParams();
       params.append('search', toSearch);
-
-      console.log(params);
       return navigate(`/search?${params}`);
     }
   };

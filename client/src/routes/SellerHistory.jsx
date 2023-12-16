@@ -11,6 +11,7 @@ import {
   OrderStatusInfo,
   OrderedProduct,
 } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   const { sellerHistoryId } = params;
@@ -19,11 +20,10 @@ export const loader = async ({ params }) => {
       `/orders/seller/get-history/${sellerHistoryId}`
     );
     const response = sellerHistory.sellerHistory;
-    console.log(response);
     return response;
     // return data;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

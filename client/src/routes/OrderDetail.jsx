@@ -1,6 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Order';
 import customFetch from '../utils/customFetch';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   try {
@@ -9,11 +10,9 @@ export const loader = async ({ params }) => {
       `/orders/user/get-order/${orderId}`
     );
     const response = userOrder.userOrder;
-    // console.log(response);
     return response;
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

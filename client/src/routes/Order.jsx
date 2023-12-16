@@ -2,6 +2,7 @@ import { redirect, useLoaderData } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Order';
 import customFetch from '../utils/customFetch';
 import { OrderListItem } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
@@ -12,7 +13,7 @@ export const loader = async () => {
     const response = userOrders.userOrders;
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

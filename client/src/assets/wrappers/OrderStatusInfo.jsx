@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     color: white;
+    border: 15px solid var(--the-primary-color);
     padding: 2rem 0;
     .order-status-info-icon {
       font-size: 2rem;

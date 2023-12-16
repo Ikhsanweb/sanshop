@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { checkDefaultTheme } from '../../App';
 import customFetch from '../../utils/customFetch';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 export const DashboardContext = createContext({
   products: [],
@@ -137,6 +138,7 @@ export const DashboardProvider = ({ children }) => {
 
     // IF FOUND, INCREMENT QUANTITY
     if (existingCartItem) {
+      toast.success('Product added to cart');
       return cartItems.map((cartItem) =>
         cartItem._id === productToAdd._id
           ? { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -145,6 +147,7 @@ export const DashboardProvider = ({ children }) => {
     }
 
     // RETURN NEW ARRAY WITH MODIFIED CARTITEMS/NEW CART ITEM
+    toast.success('Product added to cart');
     return [...cartItems, { ...productToAdd, quantity: 1 }];
   };
 

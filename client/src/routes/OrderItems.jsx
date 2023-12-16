@@ -10,6 +10,7 @@ import {
   OrderItemTitle,
   OrderedProduct,
 } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
@@ -20,7 +21,7 @@ export const loader = async () => {
     const response = userOrderItems.userOrderItems;
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -35,7 +36,7 @@ const OrderItems = () => {
           {userOrderItems.map((userOrderItem) => {
             return (
               <Link
-                to={`/order/order-item/${userOrderItem._id}`}
+                to={`/dashboard/order/order-item/${userOrderItem._id}`}
                 key={userOrderItem._id}
               >
                 <div className="order-item">

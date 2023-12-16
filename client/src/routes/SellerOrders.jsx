@@ -10,6 +10,7 @@ import {
   OrderItemTitle,
   OrderedProduct,
 } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
@@ -20,7 +21,7 @@ export const loader = async () => {
     const response = sellerOrderItems.sellerOrderItems;
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

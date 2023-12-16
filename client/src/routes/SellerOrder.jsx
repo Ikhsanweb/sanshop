@@ -1,15 +1,20 @@
 import Wrapper from '../assets/wrappers/SellerOrder';
 import { Form, useLoaderData } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
-import {
-  FaBox,
-  FaHourglass,
-  FaShippingFast,
-} from 'react-icons/fa';
+import { FaBox, FaHourglass, FaShippingFast } from 'react-icons/fa';
 import { IoReturnDownBack, IoReturnUpBack } from 'react-icons/io5';
 import Button from '../component/Button';
 import PageWrapper from '../component/PageWrapper';
-import { CustomerOrderInfo, OrderDetailStatusInfo, OrderDetailTotalPrice, OrderItemSecondaryTitle, OrderItemTitle, OrderStatusInfo, OrderedProduct } from '../component';
+import {
+  CustomerOrderInfo,
+  OrderDetailStatusInfo,
+  OrderDetailTotalPrice,
+  OrderItemSecondaryTitle,
+  OrderItemTitle,
+  OrderStatusInfo,
+  OrderedProduct,
+} from '../component';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   const { orderItemId } = params;
@@ -21,14 +26,14 @@ export const loader = async ({ params }) => {
     const response = sellerOrderItem.sellerOrderItem;
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
 
 const SellerOrder = () => {
   const sellerOrderItem = useLoaderData();
-  const {deliveryStatus,totalPrice,orderStatus} = sellerOrderItem
+  const { deliveryStatus, totalPrice, orderStatus } = sellerOrderItem;
   const deliveryBg = (status) => {
     const deliveryState = { color: null, icon: null };
     if (status === 'pending') {

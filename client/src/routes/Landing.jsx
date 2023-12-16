@@ -1,8 +1,8 @@
 import { Link, redirect } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Landing';
 import customFetch from '../utils/customFetch';
-import Button, { BUTTON_TYPE_CLASSES } from '../component/Button';
 import { Logo } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
@@ -11,6 +11,7 @@ export const loader = async () => {
       return redirect('/dashboard');
     }
   } catch (error) {
+    toast.warning('Please Sign In');
     return error;
   }
 };

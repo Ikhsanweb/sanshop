@@ -11,6 +11,7 @@ import {
   OrderedProduct,
 } from '../component';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   const { userHistoryId } = params;
@@ -18,12 +19,10 @@ export const loader = async ({ params }) => {
     const { data: userHistory } = await customFetch.get(
       `/orders/user/get-history/${userHistoryId}`
     );
-    // console.log(data);
     const response = userHistory.userHistory;
     return response;
-    // return data;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

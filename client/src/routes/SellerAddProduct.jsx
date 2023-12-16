@@ -2,8 +2,8 @@ import { Form, redirect, useLoaderData } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SellerAddProduct';
 import { FormRow, FormRowSelect, SubmitBtn } from '../component';
 import customFetch from '../utils/customFetch';
-import BackNav from '../component/BackNav';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
@@ -13,7 +13,7 @@ export const loader = async () => {
     };
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -22,7 +22,7 @@ export const action = async ({ request }) => {
   const formData = await request.formData();
   const file = formData.get('image');
   if (file && file.size > 500000) {
-    console.log('image size is too large');
+    toast.error('image size is too large');
     return null;
   }
   const categoryToFilter = formData.get('categoryToFilter');
@@ -33,14 +33,12 @@ export const action = async ({ request }) => {
   );
   formData.delete('categoryToFilter');
   formData.append('category', categoryId[0]._id);
-  console.log(formData.get('category'));
   try {
-    const addedProduct = await customFetch.post(`/products/seller`, formData);
-    console.log(addedProduct);
+    await customFetch.post(`/products/seller`, formData);
+    toast.success('Product is added successfully');
     return redirect('/dashboard/store/seller-all-products');
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

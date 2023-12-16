@@ -8,8 +8,7 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 import Wrapper from '../assets/wrappers/Payment';
-import { FormRow } from '../component';
-// import { useDashboardContext } from './DashboardLayout';
+import { FormRow, Spinner, SubmitBtn } from '../component';
 import { useMemo, useState } from 'react';
 import customFetch from '../utils/customFetch';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
@@ -17,6 +16,7 @@ import { redirect, useNavigate } from 'react-router-dom';
 import BackNav from '../component/BackNav';
 import Button from '../component/Button';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 const useOptions = () => {
   const options = useMemo(() => ({
@@ -44,13 +44,13 @@ const Payment = () => {
   const elements = useElements();
   const options = useOptions();
   const navigate = useNavigate();
-  // const [orderItems, setOrderItems] = useState([]);
   const [shippingAdress1, setShippingAdress1] = useState('');
   const [shippingAdress2, setShippingAdress2] = useState('');
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [country, setCountry] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [paymentIsLoading, setPaymentIsLoading] = useState(false);
 
   const handleShippingAdress1 = (event) => {
     setShippingAdress1(event.target.value);
@@ -83,6 +83,7 @@ const Payment = () => {
 
   const handlePayment = async (e) => {
     e.preventDefault();
+    setPaymentIsLoading(true);
     const sellerIdsOnly = cartItems.map((cartItem) => cartItem.createdBy._id);
     const sellerUniqueId = sellerIdsOnly.filter(
       (v, i, a) => a.indexOf(v) === i
@@ -122,14 +123,9 @@ const Payment = () => {
     }
 
     try {
-      const response = await customFetch.post(
-        '/orders/user/create-order',
-        {
-          orderItems: sellerUniquesArray,
-        }
-        // config
-      );
-      // return redirect('/dashboard');
+      const response = await customFetch.post('/orders/user/create-order', {
+        orderItems: sellerUniquesArray,
+      });
 
       const clientSecretId = response.data.resolvedOrder.stripePaymentIntentId;
       const successOrderId = response.data.resolvedOrder._id;
@@ -154,13 +150,15 @@ const Payment = () => {
 
       if (paymentResult.error) {
         alert(paymentResult.error);
+        setPaymentIsLoading(false);
+        toast.error(paymentResult.error);
       }
       if (paymentResult.paymentIntent.status === 'succeeded') {
-        console.log(paymentResult.paymentIntent.status);
-        return navigate(`/order/order-success/${successOrderId}`);
+        setPaymentIsLoading(false);
+        return navigate(`/dashboard/order/order-success/${successOrderId}`);
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error?.response?.data?.message);
       return error;
     }
   };
@@ -223,7 +221,10 @@ const Payment = () => {
                 <CardCvcElement options={options} />
               </div>
             </div>
-            <Button type="submit">CHECKOUT</Button>
+            <Button type="submit" disabled={paymentIsLoading}>
+              {paymentIsLoading ? <Spinner /> : 'Submit your Payment'}
+            </Button>
+            {/* <SubmitBtn /> */}
           </form>
         </div>
       </Wrapper>

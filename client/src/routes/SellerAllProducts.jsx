@@ -1,20 +1,16 @@
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SellerAllProducts';
 import customFetch from '../utils/customFetch';
-import Button from '../component/Button';
-import BackNav from '../component/BackNav';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   try {
     const { data: sellerProducts } = await customFetch.get('/products/seller');
-
     const response = sellerProducts.sellerProducts;
     return response;
-    // console.log(data);
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -22,7 +18,6 @@ export const loader = async () => {
 const SellerAllProducts = () => {
   const sellerProducts = useLoaderData();
   const navigate = useNavigate();
-  console.log(sellerProducts);
   return (
     <PageWrapper title={`All products`}>
       <Wrapper>

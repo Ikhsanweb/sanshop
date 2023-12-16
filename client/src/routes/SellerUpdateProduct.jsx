@@ -2,8 +2,8 @@ import { Form, redirect, useLoaderData } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SellerUpdateProduct';
 import customFetch from '../utils/customFetch';
 import { FormRow, FormRowSelect, SubmitBtn } from '../component';
-import BackNav from '../component/BackNav';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   const { productId } = params;
@@ -18,7 +18,7 @@ export const loader = async ({ params }) => {
     };
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -28,7 +28,7 @@ export const action = async ({ request, params }) => {
   const { productId } = params;
   const file = formData.get('image');
   if (file && file.size > 500000) {
-    console.log('image size is too large');
+    toast.error('image size is too large');
     return null;
   }
 
@@ -42,18 +42,13 @@ export const action = async ({ request, params }) => {
   formData.append('category', categoryId[0]._id);
 
   try {
-    const updatedProduct = await customFetch.patch(
-      `/products/seller/${productId}`,
-      formData
-    );
-    console.log(updatedProduct);
+    await customFetch.patch(`/products/seller/${productId}`, formData);
+    toast.success('Product is updated successfully');
     return redirect('/dashboard/store/seller-all-products');
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
-  // return null;
 };
 
 const SellerUpdateProduct = () => {

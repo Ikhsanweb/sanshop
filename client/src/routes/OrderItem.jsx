@@ -14,6 +14,7 @@ import {
   OrderStatusInfo,
   OrderedProduct,
 } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
   const { orderItemId } = params;
@@ -24,10 +25,8 @@ export const loader = async ({ params }) => {
 
     const response = userOrderItem.userOrderItem;
     return response;
-    // console.log(data);
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

@@ -5,13 +5,13 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
   padding-top: 1.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   .checkout-footer {
     position: fixed;
-    bottom: 0;
+    bottom: 4rem;
     height: 6rem;
     width: 100%;
     background-color: var(--background-secondary-color);

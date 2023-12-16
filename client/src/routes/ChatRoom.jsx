@@ -5,14 +5,12 @@ import PageWrapper from '../component/PageWrapper';
 import ChatRoomItem from '../component/ChatRoomItem';
 
 export const loader = async ({ params }) => {
-  console.log(params);
   return params;
 };
 
 const ChatRoom = () => {
   const { chatRoomId } = useLoaderData();
-  const aquiredChat = chats.filter((chat) => chat.id === chatRoomId);
-  console.log(aquiredChat);
+  // const aquiredChat = chats.filter((chat) => chat.id === chatRoomId);
   return (
     <PageWrapper>
       <Wrapper>

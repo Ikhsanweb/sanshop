@@ -7,7 +7,7 @@ import { useDashboardContext } from '../contexts/dashboardContext/dashboardConte
 const ProductComponent = ({ product }) => {
   const { addProductToCart, cartItems } = useDashboardContext();
   const { _id, brand, name, price, countInStock, image } = product;
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const handlerNavigate = () => navigate(`/dashboard/product-showcase/${_id}`);
 
   const handlerAddProductToCart = () => addProductToCart(product);

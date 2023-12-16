@@ -1,16 +1,21 @@
 import { useLoaderData } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
 import Wrapper from '../assets/wrappers/ProductShowcase';
-import BackNav from '../component/BackNav';
-import { useState } from 'react';
 import dayjs from 'dayjs';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
 
 export const loader = async ({ params }) => {
-  const { data } = await customFetch.get(`/products/${params.productId}`);
-  const response = { data };
-  return { response };
+  try {
+    const { data } = await customFetch.get(`/products/${params.productId}`);
+    const response = { data };
+
+    return { response };
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    return error;
+  }
 };
 
 const ProductShowcase = () => {
@@ -34,7 +39,6 @@ const ProductShowcase = () => {
   const handlerAddProductToCart = () => addProductToCart(product);
 
   const aquiredItem = cartItems.filter((e) => e._id === _id);
-  // const [date, setDate] = useState(null)
   const newDate = new Date(dateCreated);
   const takenDate = dayjs(newDate).format('DD MMM YYYY');
   return (

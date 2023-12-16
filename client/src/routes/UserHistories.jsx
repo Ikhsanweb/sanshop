@@ -4,6 +4,7 @@ import Wrapper from '../assets/wrappers/UserHistories';
 import PageWrapper from '../component/PageWrapper';
 import { HistoriesItem, Spinner } from '../component';
 import { Suspense } from 'react';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   // const { orderItemId } = params;
@@ -15,7 +16,7 @@ export const loader = async () => {
     const response = userHistories.userHistories;
     return response;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };

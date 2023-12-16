@@ -44,7 +44,7 @@ const CartDropdown = () => {
         ))}
       </CartItems>
       <Button>
-        <Link to="/checkout">GO TO CHECKOUT</Link>
+        <Link to="/dashboard/checkout">GO TO CHECKOUT</Link>
       </Button>
     </CartDropdownContainer>
   );

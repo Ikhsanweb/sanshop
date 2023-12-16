@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  padding-bottom: 1rem;
+  padding-bottom: 5rem;
   .body {
     padding: 2rem;
     .card-container {

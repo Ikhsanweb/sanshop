@@ -73,10 +73,9 @@ export const getSearchedProduct = async (req, res) => {
 };
 
 export const getSingleProduct = async (req, res) => {
-  const product = await Product.findById(req.params.productId).populate(
-    'category',
-    'createdBy'
-  );
+  const product = await Product.findById(req.params.productId)
+    .populate('category')
+    .populate('createdBy', 'fullName phoneNumber');
   res.status(StatusCodes.OK).json({ product });
 };
 

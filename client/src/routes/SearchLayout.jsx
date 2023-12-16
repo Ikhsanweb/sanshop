@@ -17,32 +17,22 @@ import { useState } from 'react';
 import customFetch from '../utils/customFetch';
 import CartDropdown from '../component/CartDropdown';
 import CartIcon from '../component/CartIcon';
+import { toast } from 'sonner';
 
 export const loader = async ({ request }) => {
   const params = Object.fromEntries([
     ...new URL(request.url).searchParams.entries(),
   ]);
-  console.log(params);
   try {
     const { data } = await customFetch.get('/products/searchedProduct', {
       params,
     });
-    // console.log(data);
     return { data, searchValues: { ...params } };
-    // return null;
   } catch (error) {
-    // toast.error(error?.response?.data?.message);
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
-  // return null;
 };
-
-// export const action = async ({ params }) => {
-//   // const { searchKeyword } = params;
-//   // console.log(searchKeyword);
-//   return null;
-// };
 
 const SearchLayout = () => {
   const { data } = useLoaderData();
@@ -53,7 +43,6 @@ const SearchLayout = () => {
   const [daterer, setDaterer] = useState(false);
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/dashboard');
-  console.log(searchKeyword);
   const debounce = (onChange) => {
     return (e) => {
       let timeout;

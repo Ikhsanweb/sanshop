@@ -18,7 +18,6 @@ import PageWrapper from '../component/PageWrapper';
 
 const Checkout = () => {
   const { sellerUniqueArray } = useDashboardContext();
-  console.log(sellerUniqueArray);
   const takedPrice = sellerUniqueArray.map((sellerUnique) => {
     const singlePrice = sellerUnique.products.map((product) => {
       return product.price * product.quantity;
@@ -41,7 +40,7 @@ const Checkout = () => {
           </div>
           <div className="checkout-button">
             <Button>
-              <Link to="/checkout/payment">CHECKOUT</Link>
+              <Link to="/dashboard/checkout/payment">CHECKOUT</Link>
             </Button>
           </div>
         </div>

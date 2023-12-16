@@ -8,6 +8,7 @@ import { BigSidebar, Navbar, SmallSidebar } from '../component';
 import { checkDefaultTheme } from '../App';
 import BottomNavbar from '../component/BottomNavbar';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
+import { toast } from 'sonner';
 
 const DashboardContext = createContext();
 
@@ -22,6 +23,7 @@ export const loader = async ({ request }) => {
     const response = { takedUser, products, featuredProducts };
     return { response };
   } catch (error) {
+    toast.error(error?.response?.data?.message);
     return redirect('/');
   }
 };

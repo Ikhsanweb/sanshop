@@ -5,18 +5,19 @@ import Wrapper from '../assets/wrappers/SignPage';
 import TempButton from '../component/TempButton';
 import { FormRow, FormRowSelect, Logo, SubmitBtn } from '../component';
 import customFetch from '../utils/customFetch';
+import { toast } from 'sonner';
 
-export const loader = async () => {
-  try {
-    const { data } = await customFetch.get('/users/get-current-user');
-    if (data) {
-      return redirect('/dashboard');
-    }
-    return null;
-  } catch (error) {
-    return error;
-  }
-};
+// export const loader = async () => {
+//   try {
+//     const { data } = await customFetch.get('/users/get-current-user');
+//     if (data) {
+//       return redirect('/dashboard');
+//     }
+//     return null;
+//   } catch (error) {
+//     return error;
+//   }
+// };
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -24,9 +25,10 @@ export const action = async ({ request }) => {
 
   try {
     await customFetch.post('/authentications/register', data);
+    toast.success('Account created successfully');
     return redirect('/sign-in');
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -55,8 +57,6 @@ const SignUpPage = () => {
           <SubmitBtn />
         </Form>
       </div>
-      {/* <div className="bottom-container">
-      </div> */}
     </Wrapper>
   );
 };

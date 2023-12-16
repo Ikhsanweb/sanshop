@@ -46,12 +46,12 @@ const Wrapper = styled.div`
         .button-container {
           width: 100%;
           height: 40px;
-          background-color: var(--background-secondary-color);
+          background-color: var(--background-color);
           display: flex;
           align-items: center;
           justify-content: center;
           .button-item {
-            color: white;
+            color: var(--text-secondary-color);
             font-size: 1.15rem;
             background: none;
             text-transform: capitalize;
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
         .active {
           background-color: var(--the-primary-color);
           .button-item {
-            color: var(--text-color);
+            color: white;
           }
         }
       }

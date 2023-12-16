@@ -24,7 +24,6 @@ const ImageCarousel = () => {
         ),
       delay
     );
-    console.log('fired');
     return () => {
       resetTimeout();
     };

@@ -3,6 +3,7 @@ import Wrapper from '../assets/wrappers/UpdateUser';
 import BackNav from '../component/BackNav';
 import customFetch from '../utils/customFetch';
 import { FormRow, SubmitBtn } from '../component';
+import { toast } from 'sonner';
 
 export const loader = async () => {
   const {
@@ -22,14 +23,13 @@ export const action = async ({ request }) => {
   try {
     await customFetch.patch('users/update-user', formData);
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
   }
   const {
     data: { user: takedUser },
   } = await customFetch.get('/users/get-current-user');
   if (takedUser.role === 'user') return redirect('/dashboard');
   if (takedUser.role === 'seller') return redirect('/dashboard/store');
-  // return null;
 };
 
 const UpdateUser = () => {

@@ -5,18 +5,17 @@ const Wrapper = styled.div`
     padding: 1rem;
   }
   .order-ordered-products {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     background-color: var(--background-secondary-color);
     .order-item {
       margin-bottom: 3rem;
-      border: 4px solid var(--the-primary-color);
       color: var(--text-color);
       background-color: var(--background-secondary-color);
       .order-status-info {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: var(--text-color);
+        color: white;
         padding: 2rem 0;
         .order-status-info-icon {
           font-size: 2rem;
@@ -101,12 +100,16 @@ const Wrapper = styled.div`
           }
         }
         .order-bottom-function-title {
-          border-top: 4px solid var(--the-primary-color);
+          border-bottom: 15px solid var(--the-primary-color);
+          border-left: 15px solid var(--the-primary-color);
+          border-right: 15px solid var(--the-primary-color);
           padding: 1rem;
           text-align: center;
         }
         .order-bottom-function {
-          border-top: 1px solid var(--the-primary-color);
+          border-bottom: 15px solid var(--the-primary-color);
+          border-left: 15px solid var(--the-primary-color);
+          border-right: 15px solid var(--the-primary-color);
           padding: 2rem 1rem;
           display: flex;
           flex-direction: column;

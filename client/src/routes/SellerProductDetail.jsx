@@ -1,16 +1,11 @@
-import {
-  Form,
-  Link,
-  redirect,
-  useLoaderData,
-  useNavigation,
-} from 'react-router-dom';
+import { Form, redirect, useLoaderData, useNavigation } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SellerProductDetail';
 import customFetch from '../utils/customFetch';
 import dayjs from 'dayjs';
-import BackNav from '../component/BackNav';
 import Button from '../component/Button';
 import PageWrapper from '../component/PageWrapper';
+import { toast } from 'sonner';
+import { Spinner } from '../component';
 
 export const loader = async ({ params }) => {
   const { productId } = params;
@@ -18,13 +13,10 @@ export const loader = async ({ params }) => {
     const { data: sellerProduct } = await customFetch.get(
       `/products/seller/${productId}`
     );
-
     const response = sellerProduct.sellerProduct;
     return response;
-    // console.log(data);
-    // return data;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -32,14 +24,13 @@ export const loader = async ({ params }) => {
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const { productId } = await Object.fromEntries(formData);
-  // return null;
 
   try {
     await customFetch.delete(`/products/seller/${productId}`);
+    toast.success('Product is deleted successfully');
     return redirect('/dashboard/store/seller-all-products');
-    // return null;
   } catch (error) {
-    console.log(error);
+    toast.error(error?.response?.data?.message);
     return error;
   }
 };
@@ -87,7 +78,7 @@ const SellerProductDetail = () => {
               />
 
               <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'deleting ....' : 'delete'}
+                {isSubmitting ? <Spinner /> : 'delete'}
               </Button>
             </Form>
           </div>
