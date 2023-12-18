@@ -18,7 +18,7 @@ const PaymentSuccessPage = () => {
           <IoCheckmarkCircle className="icon" />
         </div>
         <Button type="button">
-          <Link to={`/order/order-items`}>Check your Order</Link>
+          <Link to={`/dashboard/order/order-items`}>Check your Order</Link>
         </Button>
         <Button type="button">
           <Link to={`/dashboard`}>Back to Home</Link>

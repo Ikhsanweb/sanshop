@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from 'react-router-dom';
+import { Form, useLoaderData, useNavigation } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/OrderItem';
 import customFetch from '../utils/customFetch';
 import { FaBox, FaHourglass, FaShippingFast } from 'react-icons/fa';
@@ -13,6 +13,7 @@ import {
   OrderItemTitle,
   OrderStatusInfo,
   OrderedProduct,
+  Spinner,
 } from '../component';
 import { toast } from 'sonner';
 
@@ -33,6 +34,8 @@ export const loader = async ({ params }) => {
 
 const OrderItem = () => {
   const userOrderItem = useLoaderData();
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
   const { deliveryStatus, orderStatus, orderedProducts, totalPrice } =
     userOrderItem;
   const deliveryBg = (status) => {
@@ -111,7 +114,7 @@ const OrderItem = () => {
                           ).color,
                         }}
                       >
-                        Approve
+                        {isSubmitting ? <Spinner /> : 'Approve'}
                       </Button>
                     </Form>
                   )}
@@ -127,7 +130,7 @@ const OrderItem = () => {
                           marginTop: '1rem',
                         }}
                       >
-                        Not Approve
+                        {isSubmitting ? <Spinner /> : 'Not Approve'}
                       </Button>
                     </Form>
                   )}

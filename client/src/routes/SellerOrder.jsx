@@ -1,5 +1,5 @@
 import Wrapper from '../assets/wrappers/SellerOrder';
-import { Form, useLoaderData } from 'react-router-dom';
+import { Form, useLoaderData, useNavigation } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
 import { FaBox, FaHourglass, FaShippingFast } from 'react-icons/fa';
 import { IoReturnDownBack, IoReturnUpBack } from 'react-icons/io5';
@@ -13,6 +13,7 @@ import {
   OrderItemTitle,
   OrderStatusInfo,
   OrderedProduct,
+  Spinner,
 } from '../component';
 import { toast } from 'sonner';
 
@@ -33,6 +34,8 @@ export const loader = async ({ params }) => {
 
 const SellerOrder = () => {
   const sellerOrderItem = useLoaderData();
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === 'submitting';
   const { deliveryStatus, totalPrice, orderStatus } = sellerOrderItem;
   const deliveryBg = (status) => {
     const deliveryState = { color: null, icon: null };
@@ -101,7 +104,7 @@ const SellerOrder = () => {
                         ).color,
                       }}
                     >
-                      To Shipping
+                      {isSubmitting ? <Spinner /> : 'To Shipping'}
                       <FaShippingFast className="delivery-icon" />
                     </Button>
                   </Form>
@@ -119,7 +122,8 @@ const SellerOrder = () => {
                         ).color,
                       }}
                     >
-                      To Delivered <FaBox className="delivery-icon" />
+                      {isSubmitting ? <Spinner /> : 'To Delivered'}{' '}
+                      <FaBox className="delivery-icon" />
                     </Button>
                   </Form>
                 )}
@@ -136,7 +140,8 @@ const SellerOrder = () => {
                         ).color,
                       }}
                     >
-                      To Returned <IoReturnUpBack className="delivery-icon" />
+                      {isSubmitting ? <Spinner /> : 'To Returned'}{' '}
+                      <IoReturnUpBack className="delivery-icon" />
                     </Button>
                   </Form>
                 )}

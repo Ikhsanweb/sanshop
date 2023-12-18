@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: var(--text-color);
+        color: white;
         padding: 2rem 0;
         .order-status-info-icon {
           font-size: 2rem;

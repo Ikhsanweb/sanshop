@@ -2,7 +2,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Error } from './routes';
 
 // IMPORTED ACTION
-
+import sellerProceedToShippingAction from './routes/SellerProceedToShipping';
+import sellerProceedToDeliveredAction from './routes/SellerProceedToDelivered';
+import sellerProceedToReturnedAction from './routes/SellerProceedToReturned';
+import proceedToApprovedAction from './routes/ProceedToApproved';
+import proceedToNotApprovedAction from './routes/ProceedToNotApproved';
 // IMPORTED LOADER
 
 import { DashboardProvider } from './contexts/dashboardContext/dashboardContext';
@@ -484,25 +488,27 @@ function App() {
                 },
                 {
                   path: 'order-item/proceed-to-approved/:orderItemId',
-                  async lazy() {
-                    let { action: proceedToApprovedAction } = await import(
-                      './routes/ProceedToApproved'
-                    );
-                    return {
-                      action: proceedToApprovedAction,
-                    };
-                  },
+                  // async lazy() {
+                  //   let { action: proceedToApprovedAction } = await import(
+                  //     './routes/ProceedToApproved'
+                  //   );
+                  //   return {
+                  //     action: proceedToApprovedAction,
+                  //   };
+                  // },
+                  action: proceedToApprovedAction,
                 },
                 {
                   path: 'order-item/proceed-to-not-approved/:orderItemId',
-                  async lazy() {
-                    let { action: proceedToNotApprovedAction } = await import(
-                      './routes/ProceedToNotApproved'
-                    );
-                    return {
-                      action: proceedToNotApprovedAction,
-                    };
-                  },
+                  // async lazy() {
+                  //   let { action: proceedToNotApprovedAction } = await import(
+                  //     './routes/ProceedToNotApproved'
+                  //   );
+                  //   return {
+                  //     action: proceedToNotApprovedAction,
+                  //   };
+                  // },
+                  action: proceedToNotApprovedAction,
                 },
               ],
             },
@@ -603,7 +609,7 @@ function App() {
                     {
                       index: true,
                       async lazy() {
-                        let { action: sellerOrdersLoader } = await import(
+                        let { loader: sellerOrdersLoader } = await import(
                           './routes/SellerOrders'
                         );
                         return {
@@ -619,7 +625,7 @@ function App() {
                     {
                       path: 'seller-order/:orderItemId',
                       async lazy() {
-                        let { action: sellerOrderLoader } = await import(
+                        let { loader: sellerOrderLoader } = await import(
                           './routes/SellerOrder'
                         );
                         return {
@@ -634,33 +640,36 @@ function App() {
                     },
                     {
                       path: 'seller-order/proceed-to-shipping/:orderItemId',
-                      async lazy() {
-                        let { action: sellerProceedToShippingAction } =
-                          await import('./routes/SellerProceedToShipping');
-                        return {
-                          action: sellerProceedToShippingAction,
-                        };
-                      },
+                      // async lazy() {
+                      //   let { action: sellerProceedToShippingAction } =
+                      //     await import('./routes/SellerProceedToShipping');
+                      //   return {
+                      //     action: sellerProceedToShippingAction,
+                      //   };
+                      // },
+                      action: sellerProceedToShippingAction,
                     },
                     {
                       path: 'seller-order/proceed-to-delivered/:orderItemId',
-                      async lazy() {
-                        let { action: sellerProceedToDeliveredAction } =
-                          await import('./routes/SellerProceedToDelivered');
-                        return {
-                          action: sellerProceedToDeliveredAction,
-                        };
-                      },
+                      // async lazy() {
+                      //   let { action: sellerProceedToDeliveredAction } =
+                      //     await import('./routes/SellerProceedToDelivered');
+                      //   return {
+                      //     action: sellerProceedToDeliveredAction,
+                      //   };
+                      // },
+                      action: sellerProceedToDeliveredAction,
                     },
                     {
                       path: 'seller-order/proceed-to-returned/:orderItemId',
-                      async lazy() {
-                        let { action: sellerProceedToReturnedAction } =
-                          await import('./routes/SellerProceedToReturned');
-                        return {
-                          action: sellerProceedToReturnedAction,
-                        };
-                      },
+                      // async lazy() {
+                      //   let { action: sellerProceedToReturnedAction } =
+                      //     await import('./routes/SellerProceedToReturned');
+                      //   return {
+                      //     action: sellerProceedToReturnedAction,
+                      //   };
+                      // },
+                      action: sellerProceedToReturnedAction,
                     },
                   ],
                 },

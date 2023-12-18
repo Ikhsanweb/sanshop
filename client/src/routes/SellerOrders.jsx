@@ -17,7 +17,7 @@ export const loader = async () => {
     const { data: sellerOrderItems } = await customFetch.get(
       `/orders/seller/get-all-order-item`
     );
-
+    console.log(sellerOrderItems);
     const response = sellerOrderItems.sellerOrderItems;
     return response;
   } catch (error) {
