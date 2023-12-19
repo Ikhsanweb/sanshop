@@ -38,14 +38,19 @@ const CartDropdown = () => {
   }, [cartItems]);
   return (
     <CartDropdownContainer>
+      {cartItems.length === 0 ? <span>Cart is Empty</span> : null}
       <CartItems>
         {uniqueCartItems.map((item) => (
           <CartItem cartItem={item} key={item.sellerId} />
         ))}
       </CartItems>
-      <Button>
-        <Link to="/dashboard/checkout">GO TO CHECKOUT</Link>
-      </Button>
+      {cartItems.length === 0 ? (
+        ''
+      ) : (
+        <Button disabled={cartItems.length === 0}>
+          <Link to="/dashboard/checkout">GO TO CHECKOUT</Link>
+        </Button>
+      )}
     </CartDropdownContainer>
   );
 };

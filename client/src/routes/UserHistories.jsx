@@ -23,7 +23,6 @@ export const loader = async () => {
 
 const UserHistory = () => {
   const userHistories = useLoaderData();
-  console.log(userHistories);
   return (
     <Suspense fallback={<Spinner />}>
       <PageWrapper title="Transaction Histories">

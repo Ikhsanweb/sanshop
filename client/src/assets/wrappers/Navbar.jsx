@@ -5,7 +5,7 @@ const Wrapper = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,13 +14,14 @@ const Wrapper = styled.nav`
   z-index: 120;
   .nav-center {
     display: flex;
-    width: 90vw;
+    width: 70vw;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: flex-start; */
   }
   .nav-form-row {
     display: flex;
     align-items: center;
+    margin-left: 1rem;
     button {
       background: none;
       border: 2px solid var(--the-primary);
@@ -33,7 +34,7 @@ const Wrapper = styled.nav`
       align-items: center;
       justify-content: center;
       .submit-icon {
-        font-size: 1.25rem;
+        font-size: 1rem;
       }
     }
   }

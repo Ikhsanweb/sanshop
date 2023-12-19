@@ -121,7 +121,6 @@ export const DashboardProvider = ({ children }) => {
 
     // IF FOUND, DECREMENT QUANTITY
     if (existingCartItem) {
-      console.log(existingCartItem);
       return cartItems.map((cartItem, i) =>
         cartItem._id === productToAdd._id && productToAdd.quantity !== 1
           ? { ...cartItem, quantity: cartItem.quantity - 1 }

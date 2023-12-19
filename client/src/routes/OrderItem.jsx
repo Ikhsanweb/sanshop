@@ -104,7 +104,7 @@ const OrderItem = () => {
                   {userOrderItem.orderStatus === 'readyToApprove' && (
                     <Form
                       method="post"
-                      action={`/order/order-item/proceed-to-approved/${userOrderItem._id}`}
+                      action={`/dashboard/order/order-item/proceed-to-approved/${userOrderItem._id}`}
                     >
                       <Button
                         type="submit"
@@ -121,7 +121,7 @@ const OrderItem = () => {
                   {userOrderItem.orderStatus === 'readyToApprove' && (
                     <Form
                       method="post"
-                      action={`/order/order-item/proceed-to-not-approved/${userOrderItem._id}`}
+                      action={`/dashboard/order/order-item/proceed-to-not-approved/${userOrderItem._id}`}
                     >
                       <Button
                         type="submit"

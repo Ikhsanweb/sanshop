@@ -34,15 +34,21 @@ const Checkout = () => {
         ))}
 
         <div className="checkout-footer">
-          <div className="checkout-total">
-            <span className="total-text">Total </span>
-            <span className="total-number">${totalPrice}</span>
-          </div>
-          <div className="checkout-button">
-            <Button>
-              <Link to="/dashboard/checkout/payment">CHECKOUT</Link>
-            </Button>
-          </div>
+          {sellerUniqueArray.length === 0 ? (
+            <span>You have nothing to process</span>
+          ) : (
+            <>
+              <div className="checkout-total">
+                <span className="total-text">Total </span>
+                <span className="total-number">${totalPrice}</span>
+              </div>
+              <div className="checkout-button">
+                <Button>
+                  <Link to="/dashboard/checkout/payment">CHECKOUT</Link>
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       </Wrapper>
     </PageWrapper>
