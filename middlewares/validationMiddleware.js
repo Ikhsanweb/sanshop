@@ -9,6 +9,7 @@ import Product from '../models/productModel.js';
 import User from '../models/userModel.js';
 import Order from '../models/orderModel.js';
 import OrderItem from '../models/orderItemModel.js';
+import RecordedProduct from '../models/recordedProductModel.js';
 import mongoose from 'mongoose';
 
 const withValidationErrors = (validateValues) => {
@@ -161,14 +162,14 @@ export const validateCreateOrderInput = withValidationErrors([
   body('orderItems.*.orderedProducts')
     .isArray()
     .withMessage('ordered products is must be an array of objects'),
-  body('orderItems.*.orderedProducts.*.product')
+  body('orderItems.*.orderedProducts.*.recordedProduct')
     .notEmpty()
-    .withMessage('product id is required')
+    .withMessage('recordedProduct id is required')
     .custom(async (value, { ref }) => {
       const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
       if (!isValidMongoId) throw new BadRequestError('Invalid MongoDB id');
 
-      const product = await Product.findById(value);
+      const product = await RecordedProduct.findById(value);
       if (!product) throw new NotFoundError(`no product with id ${value}`);
     }),
   body('orderItems.*.orderedProducts.*.quantity')
@@ -364,4 +365,53 @@ export const validateUpdateToApprovedInput = withValidationErrors([
       //   );
       // }
     }),
+]);
+
+export const validateRecordedProductInput = withValidationErrors([
+  body('originalId').custom(async (value, { req }) => {
+    const isValidMongoId = mongoose.Types.ObjectId.isValid(value);
+    if (!isValidMongoId)
+      throw new BadRequestError(
+        'Invalid MongoDB id for collection in req.body productId'
+      );
+
+    const product = await Product.findById(value);
+    if (!product)
+      throw new NotFoundError(
+        `no product with id ${value}, product not allowed to record`
+      );
+
+    const recordedProducts = await RecordedProduct.find({ originalId: value });
+
+    console.log(recordedProducts);
+    // console.log(value);
+
+    // const recordedProductChecker = Promise.all(
+    //   recordedProducts.filter(
+    //     async (recordedProduct) => recordedProduct.originalId === value
+    //   )
+    // );
+    // // if (recordedProduct.originalId === value) {
+    // //   return true;
+    // // }
+    // // return false;
+    // console.log(recordedProductChecker);
+    // const resolvedRecordedProductChecker = await recordedProductChecker;
+    // console.log(resolvedRecordedProductChecker);
+    // if (resolvedRecordedProductChecker)
+    //   throw new BadRequestError(
+    //     'Product failed to record. Same product is already recorded'
+    //   );
+    if (recordedProducts.length !== 0)
+      throw new BadRequestError(
+        'Product failed to record. Same product is already recorded'
+      );
+  }),
+  body('name').notEmpty().withMessage('name is required'),
+  body('description').notEmpty().withMessage('description is required'),
+  body('richDescription')
+    .notEmpty()
+    .withMessage('rich description is required'),
+  body('brand').notEmpty().withMessage('brand is required'),
+  body('price').notEmpty().withMessage('price is required'),
 ]);

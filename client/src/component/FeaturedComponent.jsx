@@ -5,7 +5,7 @@ import Wrapper from '../assets/wrappers/FeaturedComponent';
 
 const FeaturedComponent = ({ product }) => {
   const { addProductToCart, cartItems } = useDashboardContext();
-  const { _id, brand, name, price, countInStock } = product;
+  const { _id, brand, name, price, countInStock, image } = product;
   const navigate = useNavigate();
   const handlerNavigate = () => navigate(`product-showcase/${_id}`);
 
@@ -15,7 +15,9 @@ const FeaturedComponent = ({ product }) => {
   return (
     <Wrapper>
       <div className="product-item">
-        <div className="product-image" onClick={handlerNavigate}></div>
+        <div className="product-image" onClick={handlerNavigate}>
+          {image && <img src={image} className="product-img" />}
+        </div>
         <div className="product-info">
           <div className="product-main-info" onClick={handlerNavigate}>
             <h2 className="product-name">

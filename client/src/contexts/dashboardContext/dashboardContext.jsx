@@ -3,6 +3,7 @@ import { checkDefaultTheme } from '../../App';
 import customFetch from '../../utils/customFetch';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import { FaClosedCaptioning } from 'react-icons/fa';
 
 export const DashboardContext = createContext({
   products: [],
@@ -130,6 +131,7 @@ export const DashboardProvider = ({ children }) => {
   };
 
   const addCartItem = (cartItems, productToAdd) => {
+    setIsLoading(true);
     // FIND IF CARTITEMS CONTAINS PRODUCTTOADD
     const existingCartItem = cartItems.find(
       (cartItem) => cartItem._id === productToAdd._id
@@ -138,6 +140,7 @@ export const DashboardProvider = ({ children }) => {
     // IF FOUND, INCREMENT QUANTITY
     if (existingCartItem) {
       toast.success('Product added to cart');
+      setIsLoading(false);
       return cartItems.map((cartItem) =>
         cartItem._id === productToAdd._id
           ? { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -147,6 +150,7 @@ export const DashboardProvider = ({ children }) => {
 
     // RETURN NEW ARRAY WITH MODIFIED CARTITEMS/NEW CART ITEM
     toast.success('Product added to cart');
+    setIsLoading(false);
     return [...cartItems, { ...productToAdd, quantity: 1 }];
   };
 

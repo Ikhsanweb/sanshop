@@ -20,6 +20,7 @@ import orderRouter from './routes/orderRouter.js';
 import categoryRouter from './routes/categoryRouter.js';
 import userRouter from './routes/userRoute.js';
 import authRouter from './routes/authRouter.js';
+import recordedProductRouter from './routes/recordedProductRouter.js';
 import { authenticateUser } from './middlewares/authMiddleware.js';
 // UPLOADS
 import { dirname } from 'path';
@@ -60,6 +61,7 @@ app.use('/api/v1/orders', authenticateUser, orderRouter);
 app.use('/api/v1/categories', authenticateUser, categoryRouter);
 app.use('/api/v1/users', authenticateUser, userRouter);
 app.use('/api/v1/authentications', authRouter);
+app.use('/api/v1/recorded-products', recordedProductRouter);
 
 app.use('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));

@@ -10,7 +10,7 @@ import CartItem from './CartItem';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 
 const CartDropdown = () => {
-  const { cartItems } = useDashboardContext();
+  const { cartItems, toggleCartDropdown } = useDashboardContext();
   const [uniqueCartItems, setUniqueCartItems] = useState([]);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const CartDropdown = () => {
       {cartItems.length === 0 ? (
         ''
       ) : (
-        <Button disabled={cartItems.length === 0}>
+        <Button disabled={cartItems.length === 0} onClick={toggleCartDropdown}>
           <Link to="/dashboard/checkout">GO TO CHECKOUT</Link>
         </Button>
       )}

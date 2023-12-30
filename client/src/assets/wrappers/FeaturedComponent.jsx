@@ -2,17 +2,23 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   .product-item {
-    background-color: white;
+    background-color: var(--background-secondary-color);
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 60% 40%;
     height: 250px;
     width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 8px;
     .product-image {
       width: 100%;
       height: 100%;
-      background-color: crimson;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .product-img {
+        height: 100%;
+      }
     }
     .product-info {
       display: flex;
@@ -42,7 +48,7 @@ const Wrapper = styled.div`
           .btn-add {
             display: flex;
             align-items: center;
-            background: crimson;
+            background: var(--the-primary-color);
             border-radius: 0;
             border: none;
             color: white;
@@ -59,6 +65,28 @@ const Wrapper = styled.div`
 
     a {
       color: white;
+    }
+  }
+  @media (min-width: 1024px) {
+    .product-item {
+      height: 250px;
+      width: 300px;
+      .product-info {
+      .product-main-info {
+        .product-name {
+          font-size: 1rem;
+          margin-top: 0.5rem;
+        }
+        .product-brand {
+          font-size: 0.65rem;
+          color: darkgray;
+        }
+      }
+      .product-bottom-holder {
+        .product-price {
+          font-size: 1rem;
+        }
+      }
     }
   }
 `;

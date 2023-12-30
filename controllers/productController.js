@@ -98,8 +98,6 @@ export const createProduct = async (req, res) => {
   req.body.createdBy = req.user.userId;
   const newProduct = { ...req.body };
 
-  console.log(newProduct);
-
   if (req.file) {
     const response = await cloudinary.v2.uploader.upload(req.file.path);
     await fs.unlink(req.file.path);
@@ -107,9 +105,7 @@ export const createProduct = async (req, res) => {
     newProduct.image = response.secure_url;
     newProduct.imagePublicId = response.public_id;
   }
-  console.log(newProduct);
   const product = await Product.create(newProduct);
-  console.log(product);
   // if (req.file && product.imagePublicId) {
   //   await cloudinary.v2.uploader.destroy(product.imagePublicId);
   // }

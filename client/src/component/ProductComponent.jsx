@@ -2,12 +2,14 @@
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/ProductComponent';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
+import Spinner from './Spinner';
+import { FaCartPlus } from 'react-icons/fa';
 // import { useDashboardContext } from '../routes/DashboardLayout';
 
 const ProductComponent = ({ product }) => {
-  const { addProductToCart, cartItems } = useDashboardContext();
+  const { addProductToCart, cartItems, isLoading } = useDashboardContext();
   const { _id, brand, name, price, countInStock, image } = product;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handlerNavigate = () => navigate(`/dashboard/product-showcase/${_id}`);
 
   const handlerAddProductToCart = () => addProductToCart(product);
@@ -37,11 +39,17 @@ const ProductComponent = ({ product }) => {
               className="btn-add"
               onClick={handlerAddProductToCart}
             >
-              Add to cart <span>+</span>
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <>
+                  <FaCartPlus className="add-to-cart" />
+                </>
+              )}
             </button>
           ) : aquiredItem[0]?.quantity + 1 > countInStock ? (
             <button type="button" className="btn" disabled>
-              maxed
+              {isLoading ? <Spinner /> : 'Maxed'}
             </button>
           ) : (
             <button
@@ -49,7 +57,13 @@ const ProductComponent = ({ product }) => {
               className="btn-add"
               onClick={handlerAddProductToCart}
             >
-              Add to cart <span>+</span>
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <>
+                  <FaCartPlus className="add-to-cart" />
+                </>
+              )}
             </button>
           )}
         </div>

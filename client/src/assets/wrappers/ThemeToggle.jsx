@@ -7,6 +7,7 @@ const Wrapper = styled.button`
   height: 2rem;
   display: grid;
   place-items: center;
+  /* margin-left: 2rem; */
   cursor: pointer;
   .toggle-icon {
     font-size: 1.15rem;

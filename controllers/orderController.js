@@ -14,13 +14,12 @@ const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
 export const userCreateOrder = async (req, res) => {
   const { orderItems } = req.body;
-
   const orderItemIds = Promise.all(
     orderItems.map(async (orderItem) => {
       const orderedItemIds = Promise.all(
         orderItem.orderedProducts.map(async (orderedProduct) => {
           const receivedOrderedProduct = await OrderedProduct.create({
-            product: orderedProduct.product,
+            recordedProduct: orderedProduct.recordedProduct,
             quantity: orderedProduct.quantity,
           });
           return receivedOrderedProduct._id;
@@ -32,9 +31,9 @@ export const userCreateOrder = async (req, res) => {
         resolvedOrderedItemIds.map(async (orderedProductId) => {
           const receivedPrice = await OrderedProduct.findById(
             orderedProductId
-          ).populate('product', 'price');
+          ).populate('recordedProduct', 'price');
           const receeivedTotalPrice =
-            receivedPrice.product.price * receivedPrice.quantity;
+            receivedPrice.recordedProduct.price * receivedPrice.quantity;
           return receeivedTotalPrice;
         })
       );
@@ -69,6 +68,8 @@ export const userCreateOrder = async (req, res) => {
 
   const calculatedTotalPrice = totalPrice.reduce((a, b) => a + b, 0);
 
+  console.log(calculatedTotalPrice);
+
   const paymentIntent = await stripeInstance.paymentIntents.create({
     amount: calculatedTotalPrice * 100,
     currency: 'usd',
@@ -98,7 +99,7 @@ export const userGetOrders = async (req, res) => {
       populate: {
         path: 'orderedProducts',
         populate: {
-          path: 'product',
+          path: 'recordedProduct',
         },
       },
     })
@@ -116,7 +117,7 @@ export const userGetOrder = async (req, res) => {
       populate: {
         path: 'orderedProducts',
         populate: {
-          path: 'product',
+          path: 'recordedProduct',
         },
       },
     })
@@ -132,7 +133,7 @@ export const userGetAllOrderItem = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -151,7 +152,7 @@ export const userGetSingleOrderItem = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -170,7 +171,7 @@ export const sellerGetAllOrderItem = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -185,7 +186,7 @@ export const sellerGetSingleOrderItems = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -244,7 +245,7 @@ export const userPatchToApproved = async (req, res) => {
   const takingUserHistoryItemIds = Promise.all(
     resolvedOrderItemToPush.orderedProducts.map(async (orderedProduct) => {
       const receivedOrderHistoryItem = await UserHistoryItem.create({
-        product: orderedProduct.product,
+        recordedProduct: orderedProduct.recordedProduct,
         quantity: orderedProduct.quantity,
       });
       return receivedOrderHistoryItem._id;
@@ -256,7 +257,7 @@ export const userPatchToApproved = async (req, res) => {
   const takingSellerHistoryItemIds = Promise.all(
     resolvedOrderItemToPush.orderedProducts.map(async (orderedProduct) => {
       const receivedOrderHistoryItem = await SellerHistoryItem.create({
-        product: orderedProduct.product,
+        recordedProduct: orderedProduct.recordedProduct,
         quantity: orderedProduct.quantity,
       });
       return receivedOrderHistoryItem._id;
@@ -365,7 +366,7 @@ export const sellerPatchToReturned = async (req, res) => {
   const takingUserHistoryItemIds = Promise.all(
     resolvedOrderItemToPush.orderedProducts.map(async (orderedProduct) => {
       const receivedOrderHistoryItem = await UserHistoryItem.create({
-        product: orderedProduct.product,
+        recordedProduct: orderedProduct.recordedProduct,
         quantity: orderedProduct.quantity,
       });
       return receivedOrderHistoryItem._id;
@@ -377,7 +378,7 @@ export const sellerPatchToReturned = async (req, res) => {
   const takingSellerHistoryItemIds = Promise.all(
     resolvedOrderItemToPush.orderedProducts.map(async (orderedProduct) => {
       const receivedOrderHistoryItem = await SellerHistoryItem.create({
-        product: orderedProduct.product,
+        recordedProduct: orderedProduct.recordedProduct,
         quantity: orderedProduct.quantity,
       });
       return receivedOrderHistoryItem._id;
@@ -456,7 +457,7 @@ export const userGetHistories = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -474,7 +475,7 @@ export const userGetHistory = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -493,7 +494,7 @@ export const sellerGetHistories = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({
@@ -512,7 +513,7 @@ export const sellerGetHistory = async (req, res) => {
     .populate({
       path: 'orderedProducts',
       populate: {
-        path: 'product',
+        path: 'recordedProduct',
       },
     })
     .populate({

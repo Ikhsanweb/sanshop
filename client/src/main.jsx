@@ -13,7 +13,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Elements stripe={stripePromise}>
       <App />
-      <Toaster position="top-center" richColors />
+      <Toaster
+        position="top-center"
+        richColors
+        closeButton
+        duration={2000}
+        style={{ marginTop: '4rem' }}
+      />
     </Elements>
   </React.StrictMode>
 );

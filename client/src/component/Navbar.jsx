@@ -36,7 +36,7 @@ const Navbar = () => {
         <button type="button" className="toggle-btn" onClick={toggleSidebar}>
           <FaAlignLeft />
         </button>
-        <div className="nav-center">
+        <div className="nav-centerr">
           <form onSubmit={handleToSearchPage}>
             <div className="nav-form-row">
               <input
@@ -51,8 +51,8 @@ const Navbar = () => {
               </button>
             </div>
           </form>
-          <h4 className="logo-text"> Dashboard</h4>
         </div>
+        <h4 className="logo-text"> Dashboard</h4>
         <div className="btn-container">
           <ThemeToggle />
           {user.role === 'user' && <CartIcon />}

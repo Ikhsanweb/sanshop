@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const SellerHistoryItemSchema = new mongoose.Schema({
-  product: {
+  recordedProduct: {
     type: mongoose.Types.ObjectId,
-    ref: 'Product',
+    ref: 'RecordedProduct',
     required: true,
   },
   quantity: {

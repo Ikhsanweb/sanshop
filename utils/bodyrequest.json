@@ -59,6 +59,23 @@
       "phoneNumber": "8249820983487",
       "seller": "6509a9bde0d310e10c525e54",
       "user": "6509a930e0d310e10c525e43"
+    },
+
+    {
+      "originalId": "6523a2329ca5fbe27aaf7501",
+      "name": "Supra",
+      "description": "Oth intentional self-harm by drown, sequela",
+      "richDescription": "Other intentional self-harm by drowning and submersion sequela",
+      "image": "https://res.cloudinary.com/dbsuwbhwe/image/upload/v1696834097/fjst1lxk…",
+      "imagePublicId": "fjst1lxkf4bsqpagsh0o",
+      "brand": "Toyota",
+      "price": 4895,
+      "category": "652027fed4cf9204bfcee46f",
+      "countInStock": 7,
+      "rating": 0,
+      "numReview": 0,
+      "createdBy": "651f5e799ca3e596e0e852be",
+      "dateCreated": "2023-10-09T06:48:18.201+00:00"
     }
   ]
 }

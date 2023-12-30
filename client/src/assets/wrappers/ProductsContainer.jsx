@@ -14,10 +14,9 @@ const Wrapper = styled.div`
     margin-top: 1rem;
   }
   .featured {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     display: grid;
     grid-template-columns: 1fr;
-    background-color: aliceblue;
     h1 {
       margin: 1.5rem 0 0.25rem 1rem;
       font-size: 1.25rem;
@@ -34,7 +33,7 @@ const Wrapper = styled.div`
   .all-products {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 4rem;
     h1 {
       text-align: center;
@@ -45,6 +44,13 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr 1fr;
       grid-gap: 0.5rem;
       padding: 0.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .all-products {
+      .products-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
     }
   }
 `;

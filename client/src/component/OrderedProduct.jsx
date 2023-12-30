@@ -2,7 +2,7 @@ import Wrapper from '../assets/wrappers/OrderedProduct';
 
 const OrderedProduct = ({ orderedProduct }) => {
   const {
-    product: { image, name, price },
+    recordedProduct: { image, name, price },
     quantity,
   } = orderedProduct;
   return (

@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const orderedProductSchema = new mongoose.Schema({
-  product: {
+  recordedProduct: {
     type: mongoose.Types.ObjectId,
-    ref: 'Product',
+    ref: 'RecordedProduct',
     required: true,
   },
   quantity: {

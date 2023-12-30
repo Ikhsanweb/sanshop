@@ -6,15 +6,15 @@ const Wrapper = styled.div`
   overflow-y: scroll;
   scroll-behavior: smooth;
   .body {
-    height: 100%;
+    height: fit-content;
     width: 100%;
+    margin-bottom: 8rem;
     .top {
       width: 100%;
-      height: 50%;
+      height: fit-content;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: crimson;
       overflow: hidden;
       .product-img {
         width: 100%;
@@ -23,20 +23,24 @@ const Wrapper = styled.div`
     .title {
       text-align: left;
       padding: 1rem;
+      padding-bottom: 0.5rem;
       .name {
         font-size: 2rem;
       }
       .brand {
         font-size: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
+        /* color: darkgray; */
       }
       .date {
-        margin-top: 1rem;
-        font-size: 1rem;
+        margin-top: 0.25rem;
+        font-size: 0.75rem;
+        color: var(--text-color);
       }
     }
     .description {
       padding: 1rem;
+      padding-top: 0.5rem;
     }
   }
   .footer {
@@ -49,6 +53,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
+    background-color: var(--background-color);
     .button-container {
       display: flex;
       align-items: end;

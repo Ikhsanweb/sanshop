@@ -13,6 +13,17 @@ export const Wrapper = styled.div`
       display: inline-flex;
       height: 200px;
       width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      .product-name {
+        position: absolute;
+        bottom: 3rem;
+        right: 1rem;
+        background-color: var(--the-primary-color);
+        color: white;
+        padding: 0.25rem 0.45rem;
+      }
     }
   }
   .slideshowDots {
@@ -29,7 +40,14 @@ export const Wrapper = styled.div`
       background-color: #c4c4c4;
     }
     .slideshowDot.active {
-      background-color: crimson;
+      background-color: var(--the-primary-color);
+    }
+  }
+  @media (min-width: 1024px) {
+    .slideshowSlider {
+      .slide {
+        height: 400px;
+      }
     }
   }
 `;

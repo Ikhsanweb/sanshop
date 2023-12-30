@@ -1,11 +1,9 @@
-import { IoLogOut, IoPerson } from 'react-icons/io5';
 import Wrapper from '../assets/wrappers/ProductsContainer';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 import FeaturedComponent from './FeaturedComponent';
 import ImageCarousel from './ImageCarousel';
 // import { useDashboardContext } from '../routes/DashboardLayout';
 import ProductComponent from './ProductComponent';
-import { FaFirstOrder, FaHistory } from 'react-icons/fa';
 import HomeAccInfo from './HomeAccInfo';
 
 const ProductsContainer = () => {
@@ -16,7 +14,6 @@ const ProductsContainer = () => {
       <HomeAccInfo />
       {featuredProducts.length > 1 && (
         <div className="featured">
-          <h1>Featured Products</h1>
           <div className="featured-container">
             {featuredProducts.map((product) => {
               return <FeaturedComponent key={product._id} product={product} />;
