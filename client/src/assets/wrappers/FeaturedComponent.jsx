@@ -26,11 +26,11 @@ const Wrapper = styled.div`
       justify-content: space-around;
       .product-main-info {
         .product-name {
-          font-size: 1.25rem;
+          font-size: var(--rf-mobile-normal);
           margin-top: 0.5rem;
         }
         .product-brand {
-          font-size: 0.85rem;
+          font-size: var(--rf-mobile-small);
           color: darkgray;
         }
       }
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: space-between;
         .product-price {
-          margin-bottom: 0.5rem;
+          /* margin-bottom: 0.5rem; */
         }
         .button-container {
           display: flex;
@@ -48,15 +48,18 @@ const Wrapper = styled.div`
           .btn-add {
             display: flex;
             align-items: center;
-            background: var(--the-primary-color);
-            border-radius: 0;
-            border: none;
-            color: white;
-            padding: 0.1rem 0.25rem 0.1rem 0.5rem;
+            /* background: var(--the-primary-color); */
+            border-radius: var(--border-radius);
+            border: 1px solid var(--the-primary-color);
+            color: var(--text-color);
+            /* padding: 0.1rem 0.25rem 0.1rem 0.5rem; */
+            padding: 0.01rem 0.5rem;
+
             span {
               padding: 0;
               font-size: 2rem;
               margin-left: 0.75rem;
+              color: var(--the-primary-color);
             }
           }
         }

@@ -25,11 +25,13 @@ const Wrapper = styled.nav`
     margin-left: 1rem;
     .search-bar {
       width: 12rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
     button {
-      background: var(--the-primary);
+      background: var(--the-primary-color);
       height: 35px;
-      border: 2px solid var(--the-primary);
+      border: 2px solid var(--the-primary-color);
       color: white;
       font-weight: 600;
       border-radius: 0;
@@ -47,7 +49,7 @@ const Wrapper = styled.nav`
     background: transparent;
     border-color: transparent;
     font-size: 1.75rem;
-    color: var(--primary-500);
+    color: var(--the-primary-color);
     cursor: pointer;
     display: none;
     align-items: center;

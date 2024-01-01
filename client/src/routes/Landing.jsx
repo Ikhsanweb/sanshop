@@ -21,7 +21,11 @@ const Landing = () => {
     <Wrapper>
       <div className="top-container">
         <Logo />
-        <h1 className="title">Explore your bags</h1>
+        <h1 className="title">Discover products for a life well lived.</h1>
+        <p className="second-title">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat ipsa
+          labore minima perferendis explicabo delectus illum blanditiis quod.
+        </p>
       </div>
       <div className="bottom-container">
         <button className="sign-up-button btn">

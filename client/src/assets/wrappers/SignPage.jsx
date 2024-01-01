@@ -13,7 +13,13 @@ const Wrapper = styled.div`
       .logo {
         width: 100%;
         height: 4rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      .second-title {
+        margin-top: 1rem;
+        font-size: var(--rf-mobile-small);
+        color: var(--text-grey);
+        text-transform: none;
       }
       h2 {
         margin-bottom: 1rem 0;
@@ -32,6 +38,14 @@ const Wrapper = styled.div`
     a {
       color: var(--text-color);
       text-decoration: underline;
+    }
+    .additional-info {
+      .additional-info-h4 {
+        font-size: var(--rf-mobile-small);
+      }
+    }
+    .btn.second-button {
+      margin-top: 1rem;
     }
   }
 

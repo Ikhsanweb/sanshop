@@ -19,9 +19,10 @@ export const Wrapper = styled.div`
       .product-name {
         position: absolute;
         bottom: 3rem;
-        right: 1rem;
-        background-color: var(--the-primary-color);
-        color: white;
+        right: 1.12rem;
+        border-radius: var(--border-radius);
+        background-color: var(--background-secondary-color);
+        color: var(--text-color);
         padding: 0.25rem 0.45rem;
       }
     }

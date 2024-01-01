@@ -5,6 +5,7 @@ import ImageCarousel from './ImageCarousel';
 // import { useDashboardContext } from '../routes/DashboardLayout';
 import ProductComponent from './ProductComponent';
 import HomeAccInfo from './HomeAccInfo';
+import { IoBag } from 'react-icons/io5';
 
 const ProductsContainer = () => {
   const { featuredProducts, products } = useDashboardContext();
@@ -15,6 +16,17 @@ const ProductsContainer = () => {
       {featuredProducts.length > 1 && (
         <div className="featured">
           <div className="featured-container">
+            <div className="featured-title">
+              <h1>
+                Featured<br></br>Products
+              </h1>
+              <h4>
+                limited<br></br>offer
+              </h4>
+              <div className="featured-icon">
+                <IoBag />
+              </div>
+            </div>
             {featuredProducts.map((product) => {
               return <FeaturedComponent key={product._id} product={product} />;
             })}

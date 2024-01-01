@@ -47,8 +47,8 @@ const SignInPage = () => {
   const loginWithTestUserOne = async () => {
     setIsLoading(true);
     const data = {
-      email: 'testuser1@testmail.com',
-      password: 'secret123',
+      email: import.meta.env.VITE_TEST_USER_EMAIL,
+      password: import.meta.env.VITE_TEST_USER_PASSWORD,
     };
     try {
       const response = await customFetch.post('/authentications/login', data);
@@ -65,24 +65,32 @@ const SignInPage = () => {
       <div className="container">
         <Form method="post">
           <div className="top-container">
-            <Logo />
-            <h2>Don{`'t`} have an account?</h2>
-            <span>
-              <Link to="/sign-up">Sign up</Link> with your email and password
-            </span>
+            {/* <Logo /> */}
+            <h1 className="title">Sign In</h1>
+            <h4 className="second-title">
+              Hi! Welcome back, you{`'`}ve been missed
+            </h4>
           </div>
           <FormRow type="email" name="email" defaultValue="" />
           <FormRow type="password" name="password" defaultValue="" />
           <SubmitBtn />
           <Button
             type="button"
-            className="btn btn-block"
+            className="btn btn-block second-button"
             onClick={loginWithTestUserOne}
             disabled={isLoading}
           >
             {isLoading ? <Spinner /> : 'Login with Test User'}
           </Button>
         </Form>
+        <div className="additional-info">
+          <h4 className="additional-info-h4">
+            Don{`'t`} have an account?{' '}
+            <Link className="sign" to="/sign-up">
+              Sign Up
+            </Link>
+          </h4>
+        </div>
       </div>
     </Wrapper>
   );

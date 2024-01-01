@@ -29,9 +29,9 @@ const ProductComponent = ({ product }) => {
             </h2>
             <h4 className="product-brand">{brand}</h4>
           </div>
-          <h3 className="product-price">$ {price}</h3>
         </div>
         <div className="button-container">
+          <h3 className="product-price">$ {price}</h3>
           {(cartItems && cartItems.length === 0) ||
           !aquiredItem[0]?.quantity ? (
             <button

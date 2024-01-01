@@ -43,7 +43,7 @@ html {
   --primary-600: #0693ab;
   --primary-700: #057897;
   --primary-800: #035e82;
-  --primary-900: #01446e;
+  --primary-900: #119c77;
 
   /* grey */
   --grey-50: #fce6ff;
@@ -66,6 +66,9 @@ html {
 
   --the-primary: #0096ec;
   --the-secondary: rgba(214, 0, 186, 0.933);
+
+  --text-grey: #666666;
+
   /* --the-tertiary: ;
   --the-quartenary: ; */
 
@@ -87,7 +90,7 @@ html {
   --rf-full-large: calc(25px + 0.39062vw);
 
   /* --border-radius: 0.25rem; */
-  --border-radius: 0;
+  --border-radius: 0.25rem;
   --letter-spacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
@@ -113,12 +116,12 @@ html {
   --dark-mode-the-secondary-color: #50d4c9;
 
   --background-color: #eafdff;
-  --text-color: var(--primary-900);
+  --text-color: #283618;
   --background-secondary-color: #dee4e7;
   --text-secondary-color: var(--primary-500);
 
-  --the-primary-color: #0e6699;
-  --the-secondary-color: #0f9e92;
+  --the-primary-color: #06d6a0;
+  --the-secondary-color: #118eb2;
 }
 
 .dark-theme {
@@ -291,10 +294,10 @@ button:disabled {
 }
 .form-label {
   display: block;
-  font-size: var(--small-text);
-  margin-bottom: 0.75rem;
+  font-size: var(--rf-mobile-small);
+  margin-bottom: 0.45rem;
   text-transform: capitalize;
-  letter-spacing: var(--letter-spacing);
+  /* letter-spacing: var(--letter-spacing) */
   line-height: 1.5;
 }
 .form-input,
@@ -305,7 +308,7 @@ button:disabled {
   border-radius: var(--border-radius);
   background: var(--background-color);
   /* border: 1px solid var(--grey-300); */
-  border: 2px solid var(--the-primary);
+  border: 1px solid var(--the-primary-color);
   color: var(--text-color);
 }
 .form-input,
@@ -314,7 +317,11 @@ button:disabled {
   height: 35px;
 }
 .form-row {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-input:focus {
+  border: 3px solid var(--the-primary-color);
 }
 
 .search-bar {
@@ -323,7 +330,7 @@ button:disabled {
   border-radius: var(--border-radius);
   background: var(--background-color);
   /* border: 1px solid var(--grey-300); */
-  border: 2px solid var(--the-primary);
+  border: 2px solid var(--the-primary-color);
   color: var(--text-color);
 }
 
@@ -332,7 +339,8 @@ button:disabled {
 }
 ::placeholder {
   font-family: inherit;
-  color: var(--grey-400);
+  color: var(--text-grey);
+  text-transform: capitalize;
 }
 .form-alert {
   color: var(--red-dark);

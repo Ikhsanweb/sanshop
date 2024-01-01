@@ -44,6 +44,8 @@ const ProductShowcase = () => {
   return (
     <PageWrapper
       title={name.length >= 20 ? name.substring(0, 20) + '...' : name}
+      isInside
+      isBg
     >
       <Wrapper>
         <div className="body">

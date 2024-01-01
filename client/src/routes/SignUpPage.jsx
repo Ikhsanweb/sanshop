@@ -39,11 +39,9 @@ const SignUpPage = () => {
       <div className="container">
         <Form method="post">
           <div className="top-container">
-            <Logo />
-            <h2>Already have an account?</h2>
-            <span>
-              <Link to="/sign-in">Sign in</Link> with your email and password
-            </span>
+            {/* <Logo /> */}
+            <h1 className="title">Create Account</h1>
+            <h4 className="second-title">Fill your information below</h4>
           </div>
           <FormRow type="text" name="fullName" labelText="full name" />
           <FormRow type="email" name="email" />
@@ -56,6 +54,14 @@ const SignUpPage = () => {
           />
           <SubmitBtn />
         </Form>
+        <div className="additional-info">
+          <h4 className="additional-info-h4">
+            Already have an account?{' '}
+            <Link className="sign" to="/sign-in">
+              Sign in
+            </Link>
+          </h4>
+        </div>
       </div>
     </Wrapper>
   );

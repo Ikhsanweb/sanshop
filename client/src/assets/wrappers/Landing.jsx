@@ -17,8 +17,17 @@ const Wrapper = styled.div`
     align-items: center;
     justify-items: center;
     .title {
+      line-height: normal;
       font-size: var(--rf-mobile-large);
+      font-weight: 600;
+      margin-top: 1.25rem;
+    }
+    .second-title {
+      line-height: normal;
       margin-top: 1rem;
+      text-align: center;
+      font-size: var(--rf-mobile-small);
+      color: var(--text-grey);
     }
     img {
       height: 3rem;
@@ -28,27 +37,34 @@ const Wrapper = styled.div`
     height: 45%;
     width: 80%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     .sign-up-button {
       background-color: var(--the-primary-color);
-      border: 3px solid var(--the-primary-color);
+      border: 5px solid var(--the-primary-color);
       height: 30px;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 3px;
       padding: 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: var(--rf-mobile-normal);
     }
     .sign-in-button {
       background-color: var(--background-color);
-      border: 3px solid var(--the-primary-color);
+      border: 1px solid var(--the-primary-color);
       height: 20px;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 5px;
       padding: 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: var(--rf-mobile-normal);
       a {
         color: var(--text-color);
       }

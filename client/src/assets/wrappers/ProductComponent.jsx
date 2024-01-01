@@ -53,7 +53,8 @@ const Wrapper = styled.div`
     }
     .button-container {
       display: flex;
-      justify-content: end;
+      justify-content: space-between;
+      align-items: center;
       .btn-add {
         display: flex;
         align-items: center;

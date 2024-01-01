@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+/* eslint-disable react/prop-types */
+import { createContext, useContext, useEffect, useState } from 'react';
 import { checkDefaultTheme } from '../../App';
 import customFetch from '../../utils/customFetch';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import { FaClosedCaptioning } from 'react-icons/fa';
+// import { FaClosedCaptioning } from 'react-icons/fa';
 
 export const DashboardContext = createContext({
   products: [],

@@ -1,13 +1,17 @@
 import Wrapper from '../assets/wrappers/PageWrapper';
 import BackNav from './BackNav';
 
-const PageWrapper = ({ children, title }) => {
+const PageWrapper = ({ children, title, isInside, isBg }) => {
   return (
     <Wrapper>
-      <div>
+      <div
+        className={`page-wrapper ${isInside ? 'inside' : ''} ${
+          isBg ? 'bg' : ''
+        }`}
+      >
         <BackNav title={title} />
       </div>
-      <div>{children}</div>
+      <div className="children-head">{children}</div>
     </Wrapper>
   );
 };

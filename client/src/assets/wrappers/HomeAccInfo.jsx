@@ -5,9 +5,10 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  width: 90%;
+  width: 85%;
   margin-top: -2rem;
   background-color: var(--background-secondary-color);
+  border-radius: var(--border-radius);
   z-index: 100;
   padding: 1rem 0.5rem;
   .acc-info-item {
@@ -15,10 +16,12 @@ const Wrapper = styled.div`
     width: 80%;
     display: flex;
     justify-content: center;
-    color: white;
-    background-color: var(--the-primary-color);
+    /* background-color: ; */
+    border: 1px solid var(--the-primary-color);
+    border-radius: var(--border-radius);
     /* border: 2px solid white; */
     a {
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -26,10 +29,10 @@ const Wrapper = styled.div`
       padding: 0.5rem 0.5rem;
       font-size: 0.75rem;
       .icon {
-        font-size: 1.75rem;
+        font-size: 1.2rem;
       }
       .text-icon {
-        margin-top: 0.75rem;
+        margin-top: 0.25rem;
       }
       .avatar {
         width: 40px;
@@ -51,13 +54,15 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 0.5rem 0.5rem;
     font-size: 0.75rem;
-    background-color: var(--the-primary-color);
-    color: white;
+    border: 1px solid var(--the-primary-color);
+    border-radius: var(--border-radius);
+
+    color: var(--text-color);
     .text-icon {
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
     }
     .icon {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
     }
   }
 `;

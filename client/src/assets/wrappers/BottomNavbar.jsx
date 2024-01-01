@@ -27,7 +27,9 @@ const Wrapper = styled.nav`
     justify-content: center;
     align-items: center;
     transition: padding-left 0.8s ease-in-out;
-    color: var(--text-color);
+    /* color: var(--text-color); */
+    color: var(--text-grey);
+
     font-size: 0.75rem;
     .icon {
       font-size: 1.5rem;
@@ -35,11 +37,9 @@ const Wrapper = styled.nav`
     }
   }
   .active {
-    color: var(--text-color);
-    border: 2px solid var(--the-primary-color);
+    color: var(--the-primary-color);
     /* border-radius: 20px; */
-    width: 30%;
-    flex-direction: row;
+    /* width: 30%; */
     justify-content: space-around;
     padding: 0.25rem 5px;
     transition: padding-left 0.8s ease-in-out;
