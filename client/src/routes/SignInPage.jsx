@@ -46,9 +46,13 @@ const SignInPage = () => {
 
   const loginWithTestUserOne = async () => {
     setIsLoading(true);
+    // const data = {
+    //   email: import.meta.env.VITE_TEST_USER_EMAIL,
+    //   password: import.meta.env.VITE_TEST_USER_PASSWORD,
+    // };
     const data = {
-      email: import.meta.env.VITE_TEST_USER_EMAIL,
-      password: import.meta.env.VITE_TEST_USER_PASSWORD,
+      email: 'testuser1@testmail.com',
+      password: 'secret123',
     };
     try {
       const response = await customFetch.post('/authentications/login', data);
