@@ -40,37 +40,41 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .sign-up-button {
-      background-color: var(--the-primary-color);
-      border: 5px solid var(--the-primary-color);
-      height: 30px;
+    a {
       width: 100%;
-      margin-bottom: 1rem;
-      border-radius: 3px;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: var(--rf-mobile-normal);
+      .sign-up-button {
+        background-color: var(--the-primary-color);
+        border: 5px solid var(--the-primary-color);
+        height: 30px;
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 3px;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--rf-mobile-normal);
+      }
     }
-    .sign-in-button {
-      background-color: var(--background-color);
-      border: 1px solid var(--the-primary-color);
-      height: 20px;
+    a {
       width: 100%;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: var(--rf-mobile-normal);
-      a {
+      .sign-in-button {
+        background-color: var(--background-color);
+        border: 1px solid var(--the-primary-color);
+        height: 20px;
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--rf-mobile-normal);
+
         color: var(--text-color);
       }
     }
   }
-
   @media (min-width: 768px) {
     min-height: 95vh;
     .top-container {

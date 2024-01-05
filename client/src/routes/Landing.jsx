@@ -1,7 +1,7 @@
-import { Link, redirect } from 'react-router-dom';
+import { Link, redirect, useNavigation } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/Landing';
 import customFetch from '../utils/customFetch';
-import { Logo } from '../component';
+import { Logo, Spinner } from '../component';
 import { toast } from 'sonner';
 
 export const loader = async () => {
@@ -17,6 +17,8 @@ export const loader = async () => {
 };
 
 const Landing = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading';
   return (
     <Wrapper>
       <div className="top-container">
@@ -27,14 +29,18 @@ const Landing = () => {
           labore minima perferendis explicabo delectus illum blanditiis quod.
         </p>
       </div>
-      <div className="bottom-container">
-        <button className="sign-up-button btn">
-          <Link to="sign-up">Sign Up</Link>
-        </button>
-        <button className="sign-in-button btn">
-          <Link to="sign-in">Sign In</Link>
-        </button>
-      </div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="bottom-container">
+          <Link to="sign-up">
+            <button className="sign-up-button btn">Sign Up</button>
+          </Link>
+          <Link to="sign-in">
+            <button className="sign-in-button btn">Sign In</button>
+          </Link>
+        </div>
+      )}
     </Wrapper>
   );
 };

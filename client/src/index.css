@@ -115,7 +115,7 @@ html {
   --dark-mode-the-primary-color: #47a2d6;
   --dark-mode-the-secondary-color: #50d4c9;
 
-  --background-color: #eafdff;
+  --background-color: whitesmoke;
   --text-color: #283618;
   --background-secondary-color: #dee4e7;
   --text-secondary-color: var(--primary-500);
@@ -265,6 +265,31 @@ button:disabled {
   color: var(--white);
   background: var(--red-dark);
 }
+
+.end-line {
+  height: 1px;
+  width: 100%;
+  background-color: lightgrey;
+  margin: 1.5rem auto;
+}
+.top-line {
+  height: 1px;
+  width: 100%;
+  background-color: lightgray;
+  margin: 0.5rem auto;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.header-line {
+  height: 0.25px;
+  width: 100%;
+  /* background-color: var(--the-primary-color); */
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  margin-top: 0.75rem;
+}
+
 /* alerts */
 .alert {
   padding: 0.375rem 0.75rem;

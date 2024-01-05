@@ -1,7 +1,7 @@
 import Wrapper from '../assets/wrappers/PageWrapper';
 import BackNav from './BackNav';
 
-const PageWrapper = ({ children, title, isInside, isBg }) => {
+const PageWrapper = ({ children, title, isInside, isBg, isNoHeader }) => {
   return (
     <Wrapper>
       <div
@@ -11,7 +11,9 @@ const PageWrapper = ({ children, title, isInside, isBg }) => {
       >
         <BackNav title={title} />
       </div>
-      <div className="children-head">{children}</div>
+      <div className={`children-header ${isNoHeader ? 'no-header' : ''}`}>
+        {children}
+      </div>
     </Wrapper>
   );
 };

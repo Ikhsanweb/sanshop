@@ -1,5 +1,13 @@
 /* eslint-disable react/prop-types */
-import { FaArrowAltCircleRight, FaArrowCircleLeft } from 'react-icons/fa';
+import {
+  FaArrowAltCircleRight,
+  FaArrowCircleLeft,
+  FaMinus,
+  FaMinusSquare,
+  FaPlus,
+  FaPlusSquare,
+  FaTrashAlt,
+} from 'react-icons/fa';
 import { useDashboardContext } from '../contexts/dashboardContext/dashboardContext';
 // import { useDashboardContext } from '../routes/DashboardLayout';
 
@@ -19,17 +27,25 @@ const QuantityContainer = ({ product }) => {
   const handleRemoveItemFromCart = () => removeItemFromCart(product);
   return (
     <div className="checkout-item-quantity-container">
-      <div>
-        <FaArrowCircleLeft onClick={handleDecreaseQuantityFromCart} />
-        <span className="checkout-item-quantity">{quantity}</span>
+      <span className="checkout-item-quantity-text">{quantity}</span>
+      <div className="checkout-item-quantity">
         {countInStock > 0 && countInStock > quantity ? (
-          <FaArrowAltCircleRight onClick={handleIncreaseQuantityFromCart} />
+          <FaPlusSquare
+            className="checkout-item-quantity-icon"
+            onClick={handleIncreaseQuantityFromCart}
+          />
         ) : (
           ''
         )}
+        <FaMinusSquare
+          className="checkout-item-quantity-icon"
+          onClick={handleDecreaseQuantityFromCart}
+        />
       </div>
       <div className="remove-button" onClick={handleRemoveItemFromCart}>
-        <span>x</span>
+        <span className="remove-button-span">
+          <FaTrashAlt className="remove-button-icon" />
+        </span>
       </div>
     </div>
   );

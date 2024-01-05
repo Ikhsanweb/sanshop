@@ -1,6 +1,6 @@
-import { FaArrowLeft } from 'react-icons/fa';
 import Wrapper from '../assets/wrappers/BackNav';
 import { useNavigate } from 'react-router-dom';
+import { IoArrowBack } from 'react-icons/io5';
 
 const BackNav = ({ title }) => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ const BackNav = ({ title }) => {
   return (
     <Wrapper>
       <div className="back-arrow" onClick={handleNavigate}>
-        <FaArrowLeft />
+        <IoArrowBack />
       </div>
       <h1 className="title">{title}</h1>
     </Wrapper>

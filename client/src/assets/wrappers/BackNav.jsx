@@ -8,8 +8,10 @@ const Wrapper = styled.div`
   .back-arrow {
     margin-left: 1rem;
     font-size: 1.5rem;
-    border: 1px solid var(--the-primary-color);
+    border: 0.5px solid var(--the-primary-color);
     padding: 0.25rem 0.5rem;
+    color: var(--the-primary-color);
+    font-weight: 400;
   }
   .title {
     margin-left: 1rem;

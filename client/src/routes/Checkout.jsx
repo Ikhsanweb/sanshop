@@ -27,7 +27,7 @@ const Checkout = () => {
   });
   const totalPrice = takedPrice.reduce((acc, v) => acc + v, 0);
   return (
-    <PageWrapper title="checkout">
+    <PageWrapper title="checkout" isNoHeader>
       <Wrapper>
         {sellerUniqueArray.map((item) => (
           <CheckoutItem cartItem={item} key={item.sellerId} />

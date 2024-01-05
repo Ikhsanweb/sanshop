@@ -3,15 +3,18 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   .page-wrapper.inside {
     position: fixed;
-    top: 4rem;
+    top: 3.9rem;
     left: 0;
     width: 100%;
   }
   .page-wrapper.bg {
     background-color: var(--background-secondary-color);
   }
-  .children-head {
+  .children-header {
     margin-top: 4rem;
+  }
+  .children-header.no-header {
+    margin-top: 0;
   }
 `;
 
