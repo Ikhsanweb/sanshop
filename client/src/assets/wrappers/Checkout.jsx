@@ -6,15 +6,14 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   padding-bottom: 10rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  margin-bottom: 10rem;
   .checkout-footer {
     position: fixed;
-    bottom: 4rem;
+    bottom: 60px;
     height: 6rem;
     width: 100%;
     background-color: var(--background-secondary-color);
-    border-top: 4px solid var(--the-primary-color);
+    /* border-top: 4px solid var(--the-primary-color); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +26,7 @@ const Wrapper = styled.div`
       justify-content: center;
       padding-right: 1rem;
       .total-text {
-        font-size: 1rem;
+        font-size: var(--rf-mobile-normal-one);
         font-weight: 700;
       }
       .total-number {

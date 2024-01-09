@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 60% 30% 10%;
-    height: 300px;
+    height: 250px;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px;
     .product-image {
@@ -37,11 +37,11 @@ const Wrapper = styled.div`
           color: darkgray;
         } */
         .product-name {
-          font-size: 1.25rem;
+          font-size: var(--rf-mobile-normal-one);
           margin-top: 0.5rem;
         }
         .product-brand {
-          font-size: 0.85rem;
+          font-size: var(--rf-mobile-small-two);
           color: darkgray;
         }
       }

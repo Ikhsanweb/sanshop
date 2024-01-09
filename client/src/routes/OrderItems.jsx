@@ -4,13 +4,16 @@ import customFetch from '../utils/customFetch';
 import PageWrapper from '../component/PageWrapper';
 import {
   CustomerOrderInfo,
+  OrderBag,
   OrderDetailStatusInfo,
   OrderDetailTotalPrice,
   OrderItemSecondaryTitle,
   OrderItemTitle,
   OrderedProduct,
+  Spinner,
 } from '../component';
 import { toast } from 'sonner';
+import { Suspense } from 'react';
 
 export const loader = async () => {
   try {
@@ -30,45 +33,29 @@ const OrderItems = () => {
   const userOrderItems = useLoaderData();
 
   return (
-    <PageWrapper title="Order Items">
-      <Wrapper>
-        <div className="body">
-          {userOrderItems.map((userOrderItem) => {
-            return (
-              <Link
-                to={`/dashboard/order/order-item/${userOrderItem._id}`}
-                key={userOrderItem._id}
-              >
-                <div className="order-item">
-                  <OrderItemTitle orderItem={userOrderItem} />
-                  <OrderItemSecondaryTitle />
-                  <div className="order-item-body">
-                    {userOrderItem.orderedProducts.map((orderedProduct) => {
-                      return (
-                        <OrderedProduct
-                          key={orderedProduct._id}
-                          orderedProduct={orderedProduct}
-                        />
-                      );
-                    })}
-                    <CustomerOrderInfo sellerOrderItem={userOrderItem} />
-                  </div>
-                  <div className="order-bottom">
-                    <OrderDetailTotalPrice
-                      totalPrice={userOrderItem.totalPrice}
-                    />
-                    <OrderDetailStatusInfo
-                      deliveryStatus={userOrderItem.deliveryStatus}
-                      orderStatus={userOrderItem.orderStatus}
-                    />
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </Wrapper>
-    </PageWrapper>
+    <Suspense fallback={<Spinner />}>
+      <PageWrapper
+        title="Order List"
+        isNoHeader
+        isColorBlack
+        isColorWhite={false}
+      >
+        <Wrapper>
+          <div className="body">
+            {userOrderItems.map((userOrderItem) => {
+              return (
+                <Link
+                  to={`/dashboard/order/order-item/${userOrderItem._id}`}
+                  key={userOrderItem._id}
+                >
+                  <OrderBag orderItems={userOrderItem} />
+                </Link>
+              );
+            })}
+          </div>
+        </Wrapper>
+      </PageWrapper>
+    </Suspense>
   );
 };
 export default OrderItems;

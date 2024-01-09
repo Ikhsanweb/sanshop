@@ -13,6 +13,14 @@ const Wrapper = styled.div`
     color: var(--the-primary-color);
     font-weight: 400;
   }
+  .back-arrow.color-white {
+    border-color: white;
+    color: white;
+  }
+  .back-arrow.color-black {
+    border-color: var(--text-grey);
+    color: var(--text-grey);
+  }
   .title {
     margin-left: 1rem;
     font-size: 1rem;

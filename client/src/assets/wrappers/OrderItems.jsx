@@ -1,22 +1,24 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  width: 100%;
+  /* background-color: red; */
   .title {
     padding: 1rem;
   }
   .body {
-    padding: 0.5rem;
+    padding: 1rem;
+    display: grid;
+    width: 100%;
+    margin-bottom: 3.5rem;
+    // grid-template-columns: 1fr;
+    // grid-auto-flow: row dense;
     .order-item {
       margin-bottom: 3rem;
-      /* border: 15px solid var(--the-primary-color); */
+      border: 1px solid var(--the-primary-color);
+      border-radius: var(--border-radius);
       color: var(--text-color);
       background-color: var(--background-secondary-color);
-      .order-item-title {
-        padding: 1rem;
-        background-color: var(--the-primary-color);
-        width: 100%;
-        color: var(--text-color);
-      }
       .order-item-title-order-item-title {
         border-bottom: 5px solid var(--the-primary-color);
         padding: 1rem;

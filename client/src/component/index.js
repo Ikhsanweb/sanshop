@@ -30,3 +30,6 @@ export { default as OrderDetailTotalPrice } from './OrderDetailTotalPrice';
 // export { default as Order } from './Order';
 // export { default as OrderItem } from './OrderItem';
 export { default as Spinner } from './Spinner';
+
+export { default as OrderBag } from './OrderBag/OrderBag';
+export { default as BagDetail } from './BagDetail/BagDetail';

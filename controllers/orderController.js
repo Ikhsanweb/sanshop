@@ -143,7 +143,8 @@ export const userGetAllOrderItem = async (req, res) => {
     .populate({
       path: 'seller',
       select: 'fullName _id',
-    });
+    })
+    .sort('-dateOrdered');
   res.status(StatusCodes.OK).json({ userOrderItems });
 };
 
@@ -177,7 +178,8 @@ export const sellerGetAllOrderItem = async (req, res) => {
     .populate({
       path: 'user',
       select: 'fullName _id',
-    });
+    })
+    .sort('-dateOrdered');
   res.status(StatusCodes.OK).json({ sellerOrderItems });
 };
 
@@ -467,7 +469,8 @@ export const userGetHistories = async (req, res) => {
     .populate({
       path: 'seller',
       select: 'fullName _id',
-    });
+    })
+    .sort('-dateOrdered');
   res.status(StatusCodes.OK).json({ userHistories });
 };
 export const userGetHistory = async (req, res) => {
@@ -504,7 +507,8 @@ export const sellerGetHistories = async (req, res) => {
     .populate({
       path: 'seller',
       select: 'fullName _id',
-    });
+    })
+    .sort('-dateOrdered');
   res.status(StatusCodes.OK).json({ sellerHistories });
 };
 

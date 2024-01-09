@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  .title {
-    padding: 1rem;
-  }
   .order-ordered-products {
     /* padding: 0.5rem; */
     background-color: var(--background-secondary-color);

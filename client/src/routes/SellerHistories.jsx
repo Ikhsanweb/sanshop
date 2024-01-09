@@ -2,8 +2,9 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/SellerHistories';
 import customFetch from '../utils/customFetch';
 import PageWrapper from '../component/PageWrapper';
-import { HistoriesItem } from '../component';
+import { HistoriesItem, OrderBag, Spinner } from '../component';
 import { toast } from 'sonner';
+import { Suspense } from 'react';
 
 export const loader = async () => {
   try {
@@ -21,22 +22,24 @@ export const loader = async () => {
 const SellerHistories = () => {
   const sellerHistories = useLoaderData();
   return (
-    <PageWrapper title="Transaction Histories">
-      <Wrapper>
-        <div className="body">
-          {sellerHistories.map((sellerOrderItem) => {
-            return (
-              <Link
-                to={`history-detail/${sellerOrderItem._id}`}
-                key={sellerOrderItem._id}
-              >
-                <HistoriesItem orderItem={sellerOrderItem} isSeller />
-              </Link>
-            );
-          })}
-        </div>
-      </Wrapper>
-    </PageWrapper>
+    <Suspense fallback={<Spinner />}>
+      <PageWrapper title="Transaction Histories" isNoHeader>
+        <Wrapper>
+          <div className="body">
+            {sellerHistories.map((sellerOrderItem) => {
+              return (
+                <Link
+                  to={`history-detail/${sellerOrderItem._id}`}
+                  key={sellerOrderItem._id}
+                >
+                  <OrderBag orderItems={sellerOrderItem} isSeller />
+                </Link>
+              );
+            })}
+          </div>
+        </Wrapper>
+      </PageWrapper>
+    </Suspense>
   );
 };
 export default SellerHistories;

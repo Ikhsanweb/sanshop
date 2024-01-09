@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     padding: 1rem;
   }
   .body {
-    padding: 1.5rem;
+    padding: 0 0.5rem;
     .order-item {
       margin-bottom: 3rem;
       border: 4px solid var(--the-primary-color);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.nav`
   display: block;
-  height: 70px;
+  height: 60px;
   width: 100%;
   background: var(--background-secondary-color);
   position: fixed;

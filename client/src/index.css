@@ -78,7 +78,17 @@ html {
 
   /* res-font */
   --rf-mobile-normal: calc(15px + 0.39062vw);
-  --rf-mobile-small: calc(12px + 0.39062vw);
+  --rf-mobile-normal-one: calc(14px + 0.39062vw);
+  --rf-mobile-normal-two: calc(13px + 0.39062vw);
+  --rf-mobile-normal-three: calc(12.5px + 0.39062vw);
+
+  --rf-mobile-small-one: calc(12px + 0.39062vw);
+  --rf-mobile-small-two: calc(11px + 0.39062vw);
+  --rf-mobile-small-three: calc(10px + 0.39062vw);
+
+  --rf-mobile-supersmall: calc(8px + 0.39062vw);
+
+  --rf-mobile-small: calc(9px + 0.39062vw);
   --rf-mobile-large: calc(18px + 0.39062vw);
 
   --rf-tab-normal: calc(18px + 0.39062vw);
@@ -96,7 +106,7 @@ html {
   --max-width: 1120px;
   --fixed-width: 600px;
   --fluid-width: 90vw;
-  --nav-height: 4rem;
+  --nav-height: 3.5rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -270,7 +280,7 @@ button:disabled {
   height: 1px;
   width: 100%;
   background-color: lightgrey;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
 }
 .top-line {
   height: 1px;
@@ -288,6 +298,30 @@ button:disabled {
   margin: 0 auto;
   margin-bottom: 1.5rem;
   margin-top: 0.75rem;
+}
+
+.strip-line {
+  /* height: 1px; */
+  border-top: 1px dashed var(--the-primary-color);
+  width: 95%;
+  background-color: lightgrey;
+  margin: 0.5rem auto;
+  margin-top: 0rem;
+}
+
+.dash-line {
+  border-top: 1px dashed lightgrey;
+  width: 95%;
+  background-color: lightgrey;
+  margin: 0.5rem auto;
+}
+.vary-dash-line {
+  border-top: 1px dashed lightgrey;
+  width: 95%;
+  /* background-color: lightgrey; */
+  margin: 0 auto;
+  margin-top: -0.25rem;
+  /* margin-bottom: -1.5rem; */
 }
 
 /* alerts */

@@ -2,7 +2,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import customFetch from '../utils/customFetch';
 import Wrapper from '../assets/wrappers/UserHistories';
 import PageWrapper from '../component/PageWrapper';
-import { HistoriesItem, Spinner } from '../component';
+import { HistoriesItem, OrderBag, Spinner } from '../component';
 import { Suspense } from 'react';
 import { toast } from 'sonner';
 
@@ -25,7 +25,7 @@ const UserHistory = () => {
   const userHistories = useLoaderData();
   return (
     <Suspense fallback={<Spinner />}>
-      <PageWrapper title="Transaction Histories">
+      <PageWrapper title="Transaction Histories" isNoHeader>
         <Wrapper>
           <div className="body">
             {userHistories.map((userOrderItem) => {
@@ -34,7 +34,7 @@ const UserHistory = () => {
                   to={`history-detail/${userOrderItem._id}`}
                   key={userOrderItem._id}
                 >
-                  <HistoriesItem orderItem={userOrderItem} />
+                  <OrderBag orderItems={userOrderItem} />
                 </Link>
               );
             })}

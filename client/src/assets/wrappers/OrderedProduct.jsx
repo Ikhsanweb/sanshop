@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  border-bottom: 15px solid var(--the-primary-color);
+  /* border-bottom: 15px solid var(--the-primary-color);
   border-left: 15px solid var(--the-primary-color);
-  border-right: 15px solid var(--the-primary-color);
+  border-right: 15px solid var(--the-primary-color); */
   .left {
     width: 30%;
     padding: 0.5rem;
