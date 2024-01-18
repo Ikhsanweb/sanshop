@@ -36,9 +36,10 @@ const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
+  margin-top: 3.5rem;
   .body {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     .card-container {
       margin-top: 3rem;
       border: 2px solid var(--the-primary-color);

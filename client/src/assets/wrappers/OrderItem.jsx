@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     /* padding: 0.5rem; */
     background-color: var(--background-secondary-color);
     .order-item {
-      margin-bottom: 3rem;
+      /* margin-bottom: 3rem; */
       color: var(--text-color);
       background-color: var(--background-secondary-color);
       .order-status-info {

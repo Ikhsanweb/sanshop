@@ -24,7 +24,7 @@ const SellerHistory = () => {
   const sellerHistory = useLoaderData();
 
   return (
-    <PageWrapper title="Transaction Detail" isNoHeader isColorWhite>
+    <PageWrapper title="Transaction Detail" isColorWhiteStatic>
       <Wrapper>
         <BagDetail items={sellerHistory} isSeller />
       </Wrapper>

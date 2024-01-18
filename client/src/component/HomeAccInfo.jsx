@@ -28,7 +28,7 @@ const HomeAccInfo = () => {
         </Link>
       </div>
       <div className="acc-info-item">
-        <Link to={`/dashboard/order/order-items`}>
+        <Link to={`/order/order-items`}>
           <FaFirstOrder className="icon" />
           <span className="text-icon">Order</span>
         </Link>

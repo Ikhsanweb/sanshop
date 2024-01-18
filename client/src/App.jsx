@@ -181,6 +181,235 @@ function App() {
           ],
         },
         {
+          path: 'product-showcase/:productId',
+          async lazy() {
+            let { loader: productShowcaseLoader } = await import(
+              './routes/ProductShowcase'
+            );
+            return {
+              loader: productShowcaseLoader,
+            };
+          },
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <ProductShowcase />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'order',
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <OrderLayout />
+            </Suspense>
+          ),
+          children: [
+            {
+              index: true,
+              async lazy() {
+                let { loader: orderLoader } = await import('./routes/Order');
+                return {
+                  loader: orderLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <Order />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'order-detail/:orderId',
+              async lazy() {
+                let { loader: orderDetailLoader } = await import(
+                  './routes/OrderDetail'
+                );
+                return {
+                  loader: orderDetailLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <OrderDetail />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'order-success/:orderId',
+              async lazy() {
+                let { loader: paymentSuccessPageLoader } = await import(
+                  './routes/PaymentSuccessPage'
+                );
+                return {
+                  loader: paymentSuccessPageLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <PaymentSuccessPage />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'order-items/',
+              async lazy() {
+                let { loader: orderItemsLoader } = await import(
+                  './routes/OrderItems'
+                );
+                return {
+                  loader: orderItemsLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <OrderItems />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'order-item/:orderItemId',
+              async lazy() {
+                let { loader: orderItemLoader } = await import(
+                  './routes/OrderItem'
+                );
+                return {
+                  loader: orderItemLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <OrderItem />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'order-item/proceed-to-approved/:orderItemId',
+              // async lazy() {
+              //   let { action: proceedToApprovedAction } = await import(
+              //     './routes/ProceedToApproved'
+              //   );
+              //   return {
+              //     action: proceedToApprovedAction,
+              //   };
+              // },
+              action: proceedToApprovedAction,
+            },
+            {
+              path: 'order-item/proceed-to-not-approved/:orderItemId',
+              // async lazy() {
+              //   let { action: proceedToNotApprovedAction } = await import(
+              //     './routes/ProceedToNotApproved'
+              //   );
+              //   return {
+              //     action: proceedToNotApprovedAction,
+              //   };
+              // },
+              action: proceedToNotApprovedAction,
+            },
+          ],
+        },
+        {
+          path: 'seller-all-orders',
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <SellerOrdersLayout />
+            </Suspense>
+          ),
+          children: [
+            {
+              index: true,
+              async lazy() {
+                let { loader: sellerOrdersLoader } = await import(
+                  './routes/SellerOrders'
+                );
+                return {
+                  loader: sellerOrdersLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <SellerOrders />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'seller-order/:orderItemId',
+              async lazy() {
+                let { loader: sellerOrderLoader } = await import(
+                  './routes/SellerOrder'
+                );
+                return {
+                  loader: sellerOrderLoader,
+                };
+              },
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <SellerOrder />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'seller-order/proceed-to-shipping/:orderItemId',
+              // async lazy() {
+              //   let { action: sellerProceedToShippingAction } =
+              //     await import('./routes/SellerProceedToShipping');
+              //   return {
+              //     action: sellerProceedToShippingAction,
+              //   };
+              // },
+              action: sellerProceedToShippingAction,
+            },
+            {
+              path: 'seller-order/proceed-to-delivered/:orderItemId',
+              // async lazy() {
+              //   let { action: sellerProceedToDeliveredAction } =
+              //     await import('./routes/SellerProceedToDelivered');
+              //   return {
+              //     action: sellerProceedToDeliveredAction,
+              //   };
+              // },
+              action: sellerProceedToDeliveredAction,
+            },
+            {
+              path: 'seller-order/proceed-to-returned/:orderItemId',
+              // async lazy() {
+              //   let { action: sellerProceedToReturnedAction } =
+              //     await import('./routes/SellerProceedToReturned');
+              //   return {
+              //     action: sellerProceedToReturnedAction,
+              //   };
+              // },
+              action: sellerProceedToReturnedAction,
+            },
+          ],
+        },
+        {
+          path: 'checkout',
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <CheckoutLayout />
+            </Suspense>
+          ),
+          children: [
+            {
+              index: true,
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <Checkout />
+                </Suspense>
+              ),
+            },
+            {
+              path: 'payment',
+              element: (
+                <Suspense fallback={<Spinner />}>
+                  <Payment />
+                </Suspense>
+              ),
+            },
+          ],
+        },
+        {
           path: 'dashboard',
           async lazy() {
             let { loader: dashboardLoader } = await import(
@@ -372,146 +601,7 @@ function App() {
                 },
               ],
             },
-            {
-              path: 'checkout',
-              element: (
-                <Suspense fallback={<Spinner />}>
-                  <CheckoutLayout />
-                </Suspense>
-              ),
-              children: [
-                {
-                  index: true,
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <Checkout />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'payment',
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <Payment />
-                    </Suspense>
-                  ),
-                },
-              ],
-            },
-            {
-              path: 'order',
-              element: (
-                <Suspense fallback={<Spinner />}>
-                  <OrderLayout />
-                </Suspense>
-              ),
-              children: [
-                {
-                  index: true,
-                  async lazy() {
-                    let { loader: orderLoader } = await import(
-                      './routes/Order'
-                    );
-                    return {
-                      loader: orderLoader,
-                    };
-                  },
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <Order />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'order-detail/:orderId',
-                  async lazy() {
-                    let { loader: orderDetailLoader } = await import(
-                      './routes/OrderDetail'
-                    );
-                    return {
-                      loader: orderDetailLoader,
-                    };
-                  },
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <OrderDetail />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'order-success/:orderId',
-                  async lazy() {
-                    let { loader: paymentSuccessPageLoader } = await import(
-                      './routes/PaymentSuccessPage'
-                    );
-                    return {
-                      loader: paymentSuccessPageLoader,
-                    };
-                  },
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <PaymentSuccessPage />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'order-items/',
-                  async lazy() {
-                    let { loader: orderItemsLoader } = await import(
-                      './routes/OrderItems'
-                    );
-                    return {
-                      loader: orderItemsLoader,
-                    };
-                  },
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <OrderItems />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'order-item/:orderItemId',
-                  async lazy() {
-                    let { loader: orderItemLoader } = await import(
-                      './routes/OrderItem'
-                    );
-                    return {
-                      loader: orderItemLoader,
-                    };
-                  },
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <OrderItem />
-                    </Suspense>
-                  ),
-                },
-                {
-                  path: 'order-item/proceed-to-approved/:orderItemId',
-                  // async lazy() {
-                  //   let { action: proceedToApprovedAction } = await import(
-                  //     './routes/ProceedToApproved'
-                  //   );
-                  //   return {
-                  //     action: proceedToApprovedAction,
-                  //   };
-                  // },
-                  action: proceedToApprovedAction,
-                },
-                {
-                  path: 'order-item/proceed-to-not-approved/:orderItemId',
-                  // async lazy() {
-                  //   let { action: proceedToNotApprovedAction } = await import(
-                  //     './routes/ProceedToNotApproved'
-                  //   );
-                  //   return {
-                  //     action: proceedToNotApprovedAction,
-                  //   };
-                  // },
-                  action: proceedToNotApprovedAction,
-                },
-              ],
-            },
+
             {
               path: 'store',
               element: (
@@ -598,81 +688,6 @@ function App() {
                     </Suspense>
                   ),
                 },
-                {
-                  path: 'seller-all-orders',
-                  element: (
-                    <Suspense fallback={<Spinner />}>
-                      <SellerOrdersLayout />
-                    </Suspense>
-                  ),
-                  children: [
-                    {
-                      index: true,
-                      async lazy() {
-                        let { loader: sellerOrdersLoader } = await import(
-                          './routes/SellerOrders'
-                        );
-                        return {
-                          loader: sellerOrdersLoader,
-                        };
-                      },
-                      element: (
-                        <Suspense fallback={<Spinner />}>
-                          <SellerOrders />
-                        </Suspense>
-                      ),
-                    },
-                    {
-                      path: 'seller-order/:orderItemId',
-                      async lazy() {
-                        let { loader: sellerOrderLoader } = await import(
-                          './routes/SellerOrder'
-                        );
-                        return {
-                          loader: sellerOrderLoader,
-                        };
-                      },
-                      element: (
-                        <Suspense fallback={<Spinner />}>
-                          <SellerOrder />
-                        </Suspense>
-                      ),
-                    },
-                    {
-                      path: 'seller-order/proceed-to-shipping/:orderItemId',
-                      // async lazy() {
-                      //   let { action: sellerProceedToShippingAction } =
-                      //     await import('./routes/SellerProceedToShipping');
-                      //   return {
-                      //     action: sellerProceedToShippingAction,
-                      //   };
-                      // },
-                      action: sellerProceedToShippingAction,
-                    },
-                    {
-                      path: 'seller-order/proceed-to-delivered/:orderItemId',
-                      // async lazy() {
-                      //   let { action: sellerProceedToDeliveredAction } =
-                      //     await import('./routes/SellerProceedToDelivered');
-                      //   return {
-                      //     action: sellerProceedToDeliveredAction,
-                      //   };
-                      // },
-                      action: sellerProceedToDeliveredAction,
-                    },
-                    {
-                      path: 'seller-order/proceed-to-returned/:orderItemId',
-                      // async lazy() {
-                      //   let { action: sellerProceedToReturnedAction } =
-                      //     await import('./routes/SellerProceedToReturned');
-                      //   return {
-                      //     action: sellerProceedToReturnedAction,
-                      //   };
-                      // },
-                      action: sellerProceedToReturnedAction,
-                    },
-                  ],
-                },
               ],
             },
             {
@@ -680,22 +695,6 @@ function App() {
               element: (
                 <Suspense fallback={<Spinner />}>
                   <Stats />
-                </Suspense>
-              ),
-            },
-            {
-              path: 'product-showcase/:productId',
-              async lazy() {
-                let { loader: productShowcaseLoader } = await import(
-                  './routes/ProductShowcase'
-                );
-                return {
-                  loader: productShowcaseLoader,
-                };
-              },
-              element: (
-                <Suspense fallback={<Spinner />}>
-                  <ProductShowcase />
                 </Suspense>
               ),
             },

@@ -23,7 +23,7 @@ export const loader = async ({ params }) => {
 const OrderItem = () => {
   const userOrderItem = useLoaderData();
   return (
-    <PageWrapper title="Your Order Detail" isNoHeader isColorWhite>
+    <PageWrapper title="Your Order Detail" isColorWhiteStatic>
       <Wrapper>
         <BagDetail items={userOrderItem} />
       </Wrapper>

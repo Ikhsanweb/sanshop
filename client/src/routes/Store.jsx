@@ -48,7 +48,7 @@ const Store = () => {
             <IoAddCircle />
           </div>
         </Link>
-        <Link to="seller-all-orders" className="body-item">
+        <Link to="/seller-all-orders" className="body-item">
           <div className="body-item-left">
             <span>See all orders</span>
           </div>

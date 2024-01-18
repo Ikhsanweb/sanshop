@@ -10,7 +10,7 @@ const ProductComponent = ({ product }) => {
   const { addProductToCart, cartItems, isLoading } = useDashboardContext();
   const { _id, brand, name, price, countInStock, image } = product;
   const navigate = useNavigate();
-  const handlerNavigate = () => navigate(`/dashboard/product-showcase/${_id}`);
+  const handlerNavigate = () => navigate(`/product-showcase/${_id}`);
 
   const handlerAddProductToCart = () => addProductToCart(product);
 

@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
+  /* margin-top: 4.5; */
   .delivery-status {
     color: var(--background-color);
     padding: 1rem;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
     margin-top: -4.5rem;
     display: flex;
     width: 100%;
-    padding-top: 5.5rem;
+    padding-top: 6.5rem;
     padding-bottom: 6rem;
     z-index: -100;
     .left {

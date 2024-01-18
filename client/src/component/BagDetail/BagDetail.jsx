@@ -25,6 +25,11 @@ const BagDetail = ({ items, isSeller }) => {
     orderedProducts,
     totalPrice,
     dateOrdered,
+    dateShipped,
+    dateDelivered,
+    dateSuccess,
+    dateReturning,
+    dateCanceled,
     deliveryStatus,
     orderStatus,
     shippingAdress1,
@@ -69,9 +74,31 @@ const BagDetail = ({ items, isSeller }) => {
       return deliveryState;
     }
   };
+
   const newDate = new Date(dateOrdered);
+  const newDateShipped = new Date(dateShipped);
+  const newDateDelivered = new Date(dateDelivered);
+  const newDateSuccess = new Date(dateSuccess);
+  const newDateReturning = new Date(dateReturning);
+  const newDateCanceled = new Date(dateCanceled);
   const takenDate = dayjs(newDate).format('DD MMM YYYY');
-  const fullDate = dayjs(newDate).format('dddd, DD MMM YYYY hh:mm A');
+  const fullPendingDate = dayjs(newDate).format('dddd, DD MMM YYYY hh:mm A');
+
+  const fullShippedDate = dayjs(newDateShipped).format(
+    'dddd, DD MMM YYYY hh:mm A'
+  );
+  const fullDeliveredDate = dayjs(newDateDelivered).format(
+    'dddd, DD MMM YYYY hh:mm A'
+  );
+  const fullSuccessDate = dayjs(newDateSuccess).format(
+    'dddd, DD MMM YYYY hh:mm A'
+  );
+  const fullReturningDate = dayjs(newDateReturning).format(
+    'dddd, DD MMM YYYY hh:mm A'
+  );
+  const fullCanceledDate = dayjs(newDateCanceled).format(
+    'dddd, DD MMM YYYY hh:mm A'
+  );
   const day = dayjs(newDate).format('DD');
   const month = dayjs(newDate).format('MMM');
   const year = dayjs(newDate).format('YYYY');
@@ -262,7 +289,7 @@ const BagDetail = ({ items, isSeller }) => {
             <span className="info-item-text">{_id}</span>
           </div>
           <div className="info-item">
-            <span className="info-item-title">Date Placed</span>
+            <span className="info-item-title">Order Placed</span>
             <span className="info-item-text">{takenDate}</span>
           </div>
         </div>
@@ -383,7 +410,7 @@ const BagDetail = ({ items, isSeller }) => {
                 >
                   pending
                 </span>
-                <span className="check-status-date">{fullDate}</span>
+                <span className="check-status-date">{fullPendingDate}</span>
               </div>
               <div className="check-status-icon">
                 <FaHourglass style={{ color: 'var(--text-color)' }} />
@@ -419,7 +446,7 @@ const BagDetail = ({ items, isSeller }) => {
                   className="check-status-date"
                   style={{ display: `${showDateShipping(deliveryStatus)}` }}
                 >
-                  {fullDate}
+                  {fullShippedDate}
                 </span>
               </div>
               <div className="check-status-icon">
@@ -465,7 +492,7 @@ const BagDetail = ({ items, isSeller }) => {
                   className="check-status-date"
                   style={{ display: `${showDateDelivered(deliveryStatus)}` }}
                 >
-                  {fullDate}
+                  {fullDeliveredDate}
                 </span>
               </div>
               <div className="check-status-icon">
@@ -498,7 +525,7 @@ const BagDetail = ({ items, isSeller }) => {
                 >
                   approved
                 </span>
-                <span className="check-status-date">{fullDate}</span>
+                <span className="check-status-date">{fullSuccessDate}</span>
               </div>
               <div className="check-status-icon">
                 <FaCheckDouble
@@ -541,7 +568,7 @@ const BagDetail = ({ items, isSeller }) => {
                   className="check-status-date"
                   style={{ display: `${showDateReturning(deliveryStatus)}` }}
                 >
-                  {fullDate}
+                  {fullReturningDate}
                 </span>
               </div>
               <div className="check-status-icon">
@@ -580,7 +607,7 @@ const BagDetail = ({ items, isSeller }) => {
                   className="check-status-date"
                   style={{ display: `${showDateReturn(orderStatus)}` }}
                 >
-                  {fullDate}
+                  {fullCanceledDate}
                 </span>
               </div>
               <div className="check-status-icon">
@@ -605,7 +632,7 @@ const BagDetail = ({ items, isSeller }) => {
                 {deliveryStatus === 'pending' && (
                   <Form
                     method="post"
-                    action={`/dashboard/store/seller-all-orders/seller-order/proceed-to-shipping/${_id}`}
+                    action={`/seller-all-orders/seller-order/proceed-to-shipping/${_id}`}
                   >
                     <button
                       type="submit"
@@ -623,7 +650,7 @@ const BagDetail = ({ items, isSeller }) => {
                 {deliveryStatus === 'shipping' && (
                   <Form
                     method="post"
-                    action={`/dashboard/store/seller-all-orders/seller-order/proceed-to-delivered/${_id}`}
+                    action={`/seller-all-orders/seller-order/proceed-to-delivered/${_id}`}
                   >
                     <button
                       type="submit"
@@ -641,7 +668,7 @@ const BagDetail = ({ items, isSeller }) => {
                 {deliveryStatus === 'returning' && (
                   <Form
                     method="post"
-                    action={`/dashboard/store/seller-all-orders/seller-order/proceed-to-returned/${_id}`}
+                    action={`/seller-all-orders/seller-order/proceed-to-returned/${_id}`}
                   >
                     <button
                       type="submit"
@@ -665,7 +692,7 @@ const BagDetail = ({ items, isSeller }) => {
               {orderStatus === 'readyToApprove' && (
                 <Form
                   method="post"
-                  action={`/dashboard/order/order-item/proceed-to-approved/${_id}`}
+                  action={`/order/order-item/proceed-to-approved/${_id}`}
                 >
                   <button
                     type="submit"
@@ -682,7 +709,7 @@ const BagDetail = ({ items, isSeller }) => {
               {orderStatus === 'readyToApprove' && (
                 <Form
                   method="post"
-                  action={`/dashboard/order/order-item/proceed-to-not-approved/${_id}`}
+                  action={`/order/order-item/proceed-to-not-approved/${_id}`}
                 >
                   <button
                     type="submit"

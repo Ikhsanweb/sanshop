@@ -37,20 +37,22 @@ const Navbar = () => {
           <FaAlignLeft />
         </button>
         <div className="nav-centerr">
-          <form onSubmit={handleToSearchPage}>
-            <div className="nav-form-row">
-              <input
-                type="text"
-                name="toSearch"
-                className="search-bar"
-                placeholder="search"
-                onChange={handleToSearch}
-              />
-              <button type="submit">
-                <FaArrowRight className="submit-icon" />
-              </button>
-            </div>
-          </form>
+          {user.role === 'user' && (
+            <form onSubmit={handleToSearchPage}>
+              <div className="nav-form-row">
+                <input
+                  type="text"
+                  name="toSearch"
+                  className="search-bar"
+                  placeholder="search"
+                  onChange={handleToSearch}
+                />
+                <button type="submit">
+                  <FaArrowRight className="submit-icon" />
+                </button>
+              </div>
+            </form>
+          )}
         </div>
         <h4 className="logo-text"> Dashboard</h4>
         <div className="btn-container">

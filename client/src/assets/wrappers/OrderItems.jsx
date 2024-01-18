@@ -10,7 +10,8 @@ const Wrapper = styled.div`
     padding: 1rem;
     display: grid;
     width: 100%;
-    margin-bottom: 3.5rem;
+    margin-bottom: 0rem;
+    margin-top: 3.5rem;
     // grid-template-columns: 1fr;
     // grid-auto-flow: row dense;
     .order-item {

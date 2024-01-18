@@ -37,6 +37,26 @@ const UserHistorySchema = new mongoose.Schema({
   dateOrdered: {
     type: Date,
   },
+  dateShipped: {
+    type: Date,
+    default: '',
+  },
+  dateDelivered: {
+    type: Date,
+    default: '',
+  },
+  dateSuccess: {
+    type: Date,
+    default: '',
+  },
+  dateReturning: {
+    type: Date,
+    default: '',
+  },
+  dateCanceled: {
+    type: Date,
+    default: '',
+  },
   approvalDate: {
     type: Date,
     default: Date.now,

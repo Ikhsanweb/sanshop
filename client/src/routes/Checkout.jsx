@@ -27,7 +27,7 @@ const Checkout = () => {
   });
   const totalPrice = takedPrice.reduce((acc, v) => acc + v, 0);
   return (
-    <PageWrapper title="checkout" isNoHeader>
+    <PageWrapper title="checkout" isInsideNoTop>
       <Wrapper>
         {sellerUniqueArray.map((item) => (
           <CheckoutItem cartItem={item} key={item.sellerId} />
@@ -44,7 +44,7 @@ const Checkout = () => {
               </div>
               <div className="checkout-button">
                 <Button>
-                  <Link to="/dashboard/checkout/payment">CHECKOUT</Link>
+                  <Link to="payment">CHECKOUT</Link>
                 </Button>
               </div>
             </>

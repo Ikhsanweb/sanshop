@@ -22,7 +22,7 @@ export const loader = async ({ params }) => {
 const UserHistory = () => {
   const userHistory = useLoaderData();
   return (
-    <PageWrapper title="Transaction Detail" isNoHeader isColorWhite>
+    <PageWrapper title="Transaction Detail" isColorWhiteStatic>
       <Wrapper>
         <BagDetail items={userHistory} />
       </Wrapper>

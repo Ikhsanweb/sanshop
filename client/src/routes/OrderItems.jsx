@@ -34,18 +34,13 @@ const OrderItems = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <PageWrapper
-        title="Order List"
-        isNoHeader
-        isColorBlack
-        isColorWhite={false}
-      >
+      <PageWrapper title="Order List" isInsideNoTop>
         <Wrapper>
           <div className="body">
             {userOrderItems.map((userOrderItem) => {
               return (
                 <Link
-                  to={`/dashboard/order/order-item/${userOrderItem._id}`}
+                  to={`/order/order-item/${userOrderItem._id}`}
                   key={userOrderItem._id}
                 >
                   <OrderBag orderItems={userOrderItem} />

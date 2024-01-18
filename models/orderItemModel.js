@@ -45,6 +45,26 @@ const OrderItemSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  dateShipped: {
+    type: Date,
+    default: '',
+  },
+  dateDelivered: {
+    type: Date,
+    default: '',
+  },
+  dateSuccess: {
+    type: Date,
+    default: '',
+  },
+  dateReturning: {
+    type: Date,
+    default: '',
+  },
+  dateCanceled: {
+    type: Date,
+    default: '',
+  },
   totalPrice: {
     type: Number,
     required: true,

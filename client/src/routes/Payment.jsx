@@ -244,7 +244,7 @@ const Payment = () => {
         }
         if (paymentResult.paymentIntent.status === 'succeeded') {
           setPaymentIsLoading(false);
-          return navigate(`/dashboard/order/order-success/${successOrderId}`);
+          return navigate(`/order/order-success/${successOrderId}`);
         }
       }
       // console.log(sellerUniquesArray[0].orderedProducts.length);
@@ -258,7 +258,7 @@ const Payment = () => {
     }
   };
   return (
-    <PageWrapper title="Make a Payment">
+    <PageWrapper title="Make a Payment" isInsideNoTop>
       {isReady ? (
         <Spinner />
       ) : (

@@ -48,7 +48,7 @@ const CartDropdown = () => {
         ''
       ) : (
         <Button disabled={cartItems.length === 0} onClick={toggleCartDropdown}>
-          <Link to="/dashboard/checkout">GO TO CHECKOUT</Link>
+          <Link to="/checkout">GO TO CHECKOUT</Link>
         </Button>
       )}
     </CartDropdownContainer>

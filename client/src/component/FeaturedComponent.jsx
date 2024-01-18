@@ -7,7 +7,7 @@ const FeaturedComponent = ({ product }) => {
   const { addProductToCart, cartItems } = useDashboardContext();
   const { _id, brand, name, price, countInStock, image } = product;
   const navigate = useNavigate();
-  const handlerNavigate = () => navigate(`product-showcase/${_id}`);
+  const handlerNavigate = () => navigate(`/product-showcase/${_id}`);
 
   const handlerAddProductToCart = () => addProductToCart(product);
 

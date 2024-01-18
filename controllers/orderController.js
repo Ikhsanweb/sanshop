@@ -9,6 +9,7 @@ import UserHistory from '../models/userHistoryModel.js';
 import SellerHistoryItem from '../models/sellerHistoryItemModel.js';
 import SellerHistory from '../models/sellerHistoryModel.js';
 import { StatusCodes } from 'http-status-codes';
+import { originAgentCluster } from 'helmet';
 
 const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -201,7 +202,10 @@ export const sellerGetSingleOrderItems = async (req, res) => {
 export const sellerPatchToShipping = async (req, res) => {
   const updatedOrderItem = await OrderItem.findByIdAndUpdate(
     req.params.orderItemId,
-    { deliveryStatus: req.body.deliveryStatus },
+    {
+      deliveryStatus: req.body.deliveryStatus,
+      dateShipped: new Date(),
+    },
     {
       new: true,
     }
@@ -218,6 +222,7 @@ export const sellerPatchToDelivered = async (req, res) => {
     {
       deliveryStatus: req.body.deliveryStatus,
       orderStatus: 'readyToApprove',
+      dateDelivered: new Date(),
     },
     {
       new: true,
@@ -232,7 +237,10 @@ export const sellerPatchToDelivered = async (req, res) => {
 export const userPatchToApproved = async (req, res) => {
   const updatedOrder = await OrderItem.findByIdAndUpdate(
     req.params.orderItemId,
-    { orderStatus: req.body.orderStatus },
+    {
+      orderStatus: req.body.orderStatus,
+      dateSuccess: new Date(),
+    },
     {
       new: true,
     }
@@ -279,6 +287,9 @@ export const userPatchToApproved = async (req, res) => {
     seller: orderItemToPush.seller,
     user: orderItemToPush.user,
     dateOrdered: orderItemToPush.dateOrdered,
+    dateShipped: orderItemToPush.dateShipped,
+    dateDelivered: orderItemToPush.dateDelivered,
+    dateSuccess: orderItemToPush.dateSuccess,
     totalPrice: orderItemToPush.totalPrice,
     deliveryStatus: orderItemToPush.deliveryStatus,
     orderStatus: orderItemToPush.orderStatus,
@@ -298,6 +309,9 @@ export const userPatchToApproved = async (req, res) => {
     seller: orderItemToPush.seller,
     user: orderItemToPush.user,
     dateOrdered: orderItemToPush.dateOrdered,
+    dateShipped: orderItemToPush.dateShipped,
+    dateDelivered: orderItemToPush.dateDelivered,
+    dateSuccess: orderItemToPush.dateSuccess,
     totalPrice: orderItemToPush.totalPrice,
     deliveryStatus: orderItemToPush.deliveryStatus,
     orderStatus: orderItemToPush.orderStatus,
@@ -340,6 +354,7 @@ export const userPatchToNotApproved = async (req, res) => {
     {
       deliveryStatus: 'returning',
       orderStatus: req.body.orderStatus,
+      dateReturning: new Date(),
     },
     {
       new: true,
@@ -353,7 +368,10 @@ export const userPatchToNotApproved = async (req, res) => {
 export const sellerPatchToReturned = async (req, res) => {
   const updatedOrder = await OrderItem.findByIdAndUpdate(
     req.params.orderItemId,
-    { deliveryStatus: req.body.deliveryStatus },
+    {
+      deliveryStatus: req.body.deliveryStatus,
+      dateCanceled: new Date(),
+    },
     {
       new: true,
     }
@@ -400,6 +418,10 @@ export const sellerPatchToReturned = async (req, res) => {
     seller: orderItemToPush.seller,
     user: orderItemToPush.user,
     dateOrdered: orderItemToPush.dateOrdered,
+    dateShipped: orderItemToPush.dateShipped,
+    dateDelivered: orderItemToPush.dateDelivered,
+    dateReturning: orderItemToPush.dateReturning,
+    dateCanceled: orderItemToPush.dateCanceled,
     totalPrice: orderItemToPush.totalPrice,
     deliveryStatus: 'canceled',
     orderStatus: 'return',
@@ -419,6 +441,10 @@ export const sellerPatchToReturned = async (req, res) => {
     seller: orderItemToPush.seller,
     user: orderItemToPush.user,
     dateOrdered: orderItemToPush.dateOrdered,
+    dateShipped: orderItemToPush.dateShipped,
+    dateDelivered: orderItemToPush.dateDelivered,
+    dateReturning: orderItemToPush.dateReturning,
+    dateCanceled: orderItemToPush.dateCanceled,
     totalPrice: orderItemToPush.totalPrice,
     deliveryStatus: 'canceled',
     orderStatus: 'return',

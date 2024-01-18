@@ -15,9 +15,7 @@ const action = async ({ params }) => {
     toast.error(error?.response?.data?.message);
     return error;
   }
-  return redirect(
-    `/dashboard/store/seller-all-orders/seller-order/${orderItemId}`
-  );
+  return redirect(`/seller-all-orders/seller-order/${orderItemId}`);
 };
 
 // const obstructingThelaw = '';

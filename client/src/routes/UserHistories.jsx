@@ -25,7 +25,7 @@ const UserHistory = () => {
   const userHistories = useLoaderData();
   return (
     <Suspense fallback={<Spinner />}>
-      <PageWrapper title="Transaction Histories" isNoHeader>
+      <PageWrapper title="Transaction Histories" >
         <Wrapper>
           <div className="body">
             {userHistories.map((userOrderItem) => {
